@@ -29,7 +29,7 @@ export const FurnitureMannequinView: FC<{}> = props =>
 
             return;
         }
-        
+
         if(GetSessionDataManager().gender.toLowerCase() !== gender.toLowerCase())
         {
             setMode(MODE_WRONG_GENDER);
@@ -43,7 +43,7 @@ export const FurnitureMannequinView: FC<{}> = props =>
 
             return;
         }
-        
+
         setMode(MODE_PEER);
     }, [ objectId, gender, clubLevel ]);
 
@@ -141,4 +141,4 @@ export const FurnitureMannequinView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

@@ -30,7 +30,7 @@ export const GroupsContainerView: FC<GroupsContainerViewProps> = props =>
     useEffect(() =>
     {
         if(!selectedGroupId) return;
-        
+
         SendMessageComposer(new GroupInformationComposer(selectedGroupId, false));
     }, [ selectedGroupId ]);
 
@@ -64,7 +64,7 @@ export const GroupsContainerView: FC<GroupsContainerViewProps> = props =>
             </Column>
         );
     }
-    
+
     return (
         <Grid overflow={ overflow } gap={ 2 } { ...rest }>
             <Column alignItems="center" size={ 2 } overflow="auto">
@@ -77,7 +77,7 @@ export const GroupsContainerView: FC<GroupsContainerViewProps> = props =>
                                 <i className={ 'position-absolute end-0 top-0 z-index-1 icon icon-group-' + (group.favourite ? 'favorite' : 'not-favorite') } onClick={ () => ToggleFavoriteGroup(group) } /> }
                                 <LayoutBadgeImageView badgeCode={ group.badgeCode } isGroup={ true } />
                             </LayoutGridItem>
-                        )
+                        );
                     }) }
                 </AutoGrid>
             </Column>
@@ -87,4 +87,4 @@ export const GroupsContainerView: FC<GroupsContainerViewProps> = props =>
             </Column>
         </Grid>
     );
-}
+};

@@ -45,4 +45,4 @@ export const FurnitureWidgetsView: FC<{}> = props =>
             <FurnitureYoutubeDisplayView />
         </Base>
     );
-}
+};

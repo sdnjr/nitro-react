@@ -54,9 +54,9 @@ export const UserSettingsView: FC<{}> = props =>
         }
 
         if(doUpdate) setUserSettings(clone);
-        
-        DispatchMainEvent(clone)
-    }
+
+        DispatchMainEvent(clone);
+    };
 
     const saveRangeSlider = (type: string) =>
     {
@@ -66,7 +66,7 @@ export const UserSettingsView: FC<{}> = props =>
                 SendMessageComposer(new UserSettingsSoundComposer(Math.round(userSettings.volumeSystem), Math.round(userSettings.volumeFurni), Math.round(userSettings.volumeTrax)));
                 break;
         }
-    }
+    };
 
     useMessageEvent<UserSettingsEvent>(UserSettingsEvent, event =>
     {
@@ -94,7 +94,7 @@ export const UserSettingsView: FC<{}> = props =>
                 const parts = url.split('/');
 
                 if(parts.length < 2) return;
-        
+
                 switch(parts[1])
                 {
                     case 'show':
@@ -184,4 +184,4 @@ export const UserSettingsView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

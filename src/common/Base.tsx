@@ -75,10 +75,10 @@ export const Base: FC<BaseProps<HTMLDivElement>> = props =>
 
         return newStyle;
     }, [ style ]);
-    
+
     return (
         <div ref={ innerRef } className={ getClassName } style={ getStyle } { ...rest }>
             { children }
         </div>
     );
-}
+};

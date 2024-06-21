@@ -36,7 +36,7 @@ export const LayoutGridItem: FC<LayoutGridItemProps> = props =>
 
         if(itemHighlight) newClassNames.push('has-highlight');
 
-        if(disabled) newClassNames.push('disabled')
+        if(disabled) newClassNames.push('disabled');
 
         if(itemImage === null) newClassNames.push('icon', 'loading-icon');
 
@@ -62,7 +62,7 @@ export const LayoutGridItem: FC<LayoutGridItemProps> = props =>
         <Column center={ center } pointer position={ position } overflow={ overflow } column={ column } classNames={ getClassNames } style={ getStyle } { ...rest }>
             { (itemCount > itemCountMinimum) &&
                 <LayoutItemCountView count={ itemCount } /> }
-            { (itemUniqueNumber > 0) && 
+            { (itemUniqueNumber > 0) &&
                 <>
                     <Base fit className="unique-bg-override" style={ { backgroundImage: `url(${ itemImage })` } } />
                     <div className="position-absolute bottom-0 unique-item-counter">
@@ -72,4 +72,4 @@ export const LayoutGridItem: FC<LayoutGridItemProps> = props =>
             { children }
         </Column>
     );
-}
+};

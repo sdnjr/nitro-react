@@ -20,7 +20,7 @@ const useCameraState = () =>
     useMessageEvent<InitCameraMessageEvent>(InitCameraMessageEvent, event =>
     {
         const parser = event.getParser();
-        
+
         setPrice({ credits: parser.creditPrice, duckets: parser.ducketPrice, publishDucketPrice: parser.publishDucketPrice });
     });
 
@@ -37,6 +37,6 @@ const useCameraState = () =>
     }, []);
 
     return { availableEffects, cameraRoll, setCameraRoll, selectedPictureIndex, setSelectedPictureIndex, myLevel, price };
-}
+};
 
 export const useCamera = () => useBetween(useCameraState);

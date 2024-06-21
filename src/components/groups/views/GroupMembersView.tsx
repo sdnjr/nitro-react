@@ -19,7 +19,7 @@ export const GroupMembersView: FC<{}> = props =>
     const getRankDescription = (member: GroupMemberParser) =>
     {
         if(member.rank === GroupRank.OWNER) return 'group.members.owner';
-        
+
         if(membersData.admin)
         {
             if(member.rank === GroupRank.ADMIN) return 'group.members.removerights';
@@ -28,7 +28,7 @@ export const GroupMembersView: FC<{}> = props =>
         }
 
         return '';
-    }
+    };
 
     const refreshMembers = useCallback(() =>
     {
@@ -40,21 +40,21 @@ export const GroupMembersView: FC<{}> = props =>
     const toggleAdmin = (member: GroupMemberParser) =>
     {
         if(!membersData.admin || (member.rank === GroupRank.OWNER)) return;
-        
+
         if(member.rank !== GroupRank.ADMIN) SendMessageComposer(new GroupAdminGiveComposer(membersData.groupId, member.id));
         else SendMessageComposer(new GroupAdminTakeComposer(membersData.groupId, member.id));
 
         refreshMembers();
-    }
+    };
 
     const acceptMembership = (member: GroupMemberParser) =>
     {
         if(!membersData.admin || (member.rank !== GroupRank.REQUESTED)) return;
-        
+
         SendMessageComposer(new GroupMembershipAcceptComposer(membersData.groupId, member.id));
 
         refreshMembers();
-    }
+    };
 
     const removeMemberOrDeclineMembership = (member: GroupMemberParser) =>
     {
@@ -68,10 +68,10 @@ export const GroupMembersView: FC<{}> = props =>
 
             return;
         }
-        
+
         setRemovingMemberName(member.name);
         SendMessageComposer(new GroupConfirmRemoveMemberComposer(membersData.groupId, member.id));
-    }
+    };
 
     useMessageEvent<GroupMembersEvent>(GroupMembersEvent, event =>
     {
@@ -92,7 +92,7 @@ export const GroupMembersView: FC<{}> = props =>
 
             refreshMembers();
         }, null);
-            
+
         setRemovingMemberName(null);
     });
 
@@ -102,12 +102,12 @@ export const GroupMembersView: FC<{}> = props =>
             linkReceived: (url: string) =>
             {
                 const parts = url.split('/');
-        
+
                 if(parts.length < 2) return;
-        
+
                 const groupId = (parseInt(parts[1]) || -1);
                 const levelId = (parseInt(parts[2]) || 3);
-                
+
                 setGroupId(groupId);
                 setLevelId(levelId);
                 setPageId(0);
@@ -140,7 +140,7 @@ export const GroupMembersView: FC<{}> = props =>
         setMembersData(null);
         setTotalPages(0);
         setSearchQuery('');
-        setRemovingMemberName(null); 
+        setRemovingMemberName(null);
     }, [ groupId ]);
 
     if((groupId === -1) || !membersData) return null;

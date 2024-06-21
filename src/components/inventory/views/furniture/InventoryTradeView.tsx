@@ -52,7 +52,7 @@ export const InventoryTradeView: FC<InventoryTradeViewProps> = props =>
         }
 
         return !!ownUser.userItems.getValue(type);
-    }
+    };
 
     const attemptItemOffer = (count: number) =>
     {
@@ -109,19 +109,19 @@ export const InventoryTradeView: FC<InventoryTradeViewProps> = props =>
         {
             simpleAlert(LocalizeText('trading.items.too_many_items.desc'), NotificationAlertType.DEFAULT, null, null, LocalizeText('trading.items.too_many_items.title'));
         }
-    }
+    };
 
     const getLockIcon = (accepts: boolean) =>
     {
         if(accepts)
         {
-            return <FaLock className="text-success fa-icon" />
+            return <FaLock className="text-success fa-icon" />;
         }
         else
         {
-            return <FaUnlock className="text-danger fa-icon" />
+            return <FaUnlock className="text-danger fa-icon" />;
         }
-    }
+    };
 
     const updateQuantity = (value: number, totalItemCount: number) =>
     {
@@ -133,13 +133,13 @@ export const InventoryTradeView: FC<InventoryTradeViewProps> = props =>
         if(value === quantity) return;
 
         setQuantity(value);
-    }
+    };
 
     const changeCount = (totalItemCount: number) =>
     {
         updateQuantity(quantity, totalItemCount);
         attemptItemOffer(quantity);
-    }
+    };
 
     useEffect(() =>
     {
@@ -276,4 +276,4 @@ export const InventoryTradeView: FC<InventoryTradeViewProps> = props =>
             </Column>
         </Grid>
     );
-}
+};

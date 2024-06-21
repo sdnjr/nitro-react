@@ -12,11 +12,11 @@ export const CatalogRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props 
     useUiEvent(CatalogPurchasedEvent.PURCHASE_SUCCESS, event =>
     {
         if(!elementRef) return;
-        
+
         const renderTexture = roomPreviewer.getRoomObjectCurrentImage();
 
         if(!renderTexture) return;
-        
+
         (async () =>
         {
             const image = await TextureUtils.generateImage(renderTexture);
@@ -41,4 +41,4 @@ export const CatalogRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props 
             <LayoutRoomPreviewerView { ...props } />
         </div>
     );
-}
+};

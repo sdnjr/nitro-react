@@ -29,7 +29,7 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
         roomSession.sendMottoMessage(motto);
 
         setIsEditingMotto(false);
-    }
+    };
 
     const onMottoBlur = (event: FocusEvent<HTMLInputElement>) => saveMotto(event.target.value);
 
@@ -43,7 +43,7 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
                 saveMotto((event.target as HTMLInputElement).value);
                 return;
         }
-    }
+    };
 
     useNitroEvent<RoomSessionUserBadgesEvent>(RoomSessionUserBadgesEvent.RSUBE_BADGES, event =>
     {
@@ -89,7 +89,7 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
             const clearGroup = ((event.status === -1) || (event.habboGroupId <= 0));
 
             newValue.groupId = clearGroup ? -1 : event.habboGroupId;
-            newValue.groupName = clearGroup ? null : event.habboGroupName
+            newValue.groupName = clearGroup ? null : event.habboGroupName;
             newValue.groupBadgeId = clearGroup ? null : GetSessionDataManager().getGroupBadge(event.habboGroupId);
 
             return newValue;
@@ -117,7 +117,7 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
             setIsEditingMotto(false);
             setMotto(null);
             setRelationships(null);
-        }
+        };
     }, [ avatarInfo ]);
 
     if(!avatarInfo) return null;
@@ -212,4 +212,4 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
             </Column>
         </Column>
     );
-}
+};

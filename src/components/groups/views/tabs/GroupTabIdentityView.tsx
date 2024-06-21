@@ -29,10 +29,10 @@ export const GroupTabIdentityView: FC<GroupTabIdentityViewProps> = props =>
         showConfirm(LocalizeText('group.deleteconfirm.desc'), () =>
         {
             SendMessageComposer(new GroupDeleteComposer(groupData.groupId));
-                
+
             if(onClose) onClose();
         }, null, null, null, LocalizeText('group.deleteconfirm.title'));
-    }
+    };
 
     const saveIdentity = useCallback(() =>
     {

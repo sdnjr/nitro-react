@@ -49,5 +49,5 @@ export const AchievementDetailsView: FC<AchievementDetailsViewProps> = props =>
                     </Column> }
             </Column>
         </Flex>
-    )
-}
+    );
+};

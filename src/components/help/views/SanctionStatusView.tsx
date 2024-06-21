@@ -32,7 +32,7 @@ export const SanctionSatusView:FC<{}> = props =>
         }
 
         return LocalizeText(localizationName, [ 'hours' ], [ length.toString() ]);
-    }
+    };
 
     if(!sanctionInfo) return null;
 
@@ -71,5 +71,5 @@ export const SanctionSatusView:FC<{}> = props =>
                 </Grid>
             </NitroCardContentView>
         </NitroCardView>
-    )
-}
+    );
+};

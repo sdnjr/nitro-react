@@ -12,7 +12,7 @@ export const FriendsMessengerThreadGroup: FC<{ thread: MessengerThread, group: M
     const isOwnChat = useMemo(() =>
     {
         if(!thread || !group) return false;
-        
+
         if((group.type === MessengerGroupType.PRIVATE_CHAT) && (group.userId === GetSessionDataManager().userId)) return true;
 
         if(groupChatData && group.chats.length && (groupChatData.userId === GetSessionDataManager().userId)) return true;
@@ -21,7 +21,7 @@ export const FriendsMessengerThreadGroup: FC<{ thread: MessengerThread, group: M
     }, [ thread, group, groupChatData ]);
 
     if(!thread || !group) return null;
-    
+
     if(!group.userId)
     {
         return (
@@ -48,7 +48,7 @@ export const FriendsMessengerThreadGroup: FC<{ thread: MessengerThread, group: M
             </>
         );
     }
-    
+
     return (
         <Flex fullWidth justifyContent={ isOwnChat ? 'end' : 'start' } gap={ 2 }>
             <Base shrink className="message-avatar">
@@ -70,4 +70,4 @@ export const FriendsMessengerThreadGroup: FC<{ thread: MessengerThread, group: M
                 </Base> }
         </Flex>
     );
-}
+};

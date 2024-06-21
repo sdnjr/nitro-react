@@ -64,9 +64,9 @@ export const ModToolsUserModActionView: FC<ModToolsUserModActionViewProps> = pro
         const messageOrDefault = (message.trim().length === 0) ? LocalizeText(`help.cfh.topic.${ category.id }`) : message;
 
         SendMessageComposer(new DefaultSanctionMessageComposer(user.userId, selectedTopic, messageOrDefault));
-        
+
         onCloseClick();
-    }
+    };
 
     const sendSanction = () =>
     {
@@ -83,7 +83,7 @@ export const ModToolsUserModActionView: FC<ModToolsUserModActionViewProps> = pro
         if(errorMessage)
         {
             sendAlert(errorMessage);
-            
+
             return;
         }
 
@@ -102,7 +102,7 @@ export const ModToolsUserModActionView: FC<ModToolsUserModActionViewProps> = pro
                 SendMessageComposer(new ModAlertMessageComposer(user.userId, messageOrDefault, category.id));
                 break;
             }
-            case ModActionDefinition.MUTE: 
+            case ModActionDefinition.MUTE:
                 SendMessageComposer(new ModMuteMessageComposer(user.userId, messageOrDefault, category.id));
                 break;
             case ModActionDefinition.BAN: {
@@ -146,7 +146,7 @@ export const ModToolsUserModActionView: FC<ModToolsUserModActionViewProps> = pro
         }
 
         onCloseClick();
-    }
+    };
 
     if(!user) return null;
 
@@ -173,4 +173,4 @@ export const ModToolsUserModActionView: FC<ModToolsUserModActionViewProps> = pro
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

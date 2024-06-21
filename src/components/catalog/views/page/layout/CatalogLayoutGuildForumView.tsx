@@ -20,7 +20,7 @@ export const CatalogLayouGuildForumView: FC<CatalogLayoutProps> = props =>
     {
         SendMessageComposer(new CatalogGroupsComposer());
     }, [ page ]);
-    
+
     return (
         <>
             <CatalogFirstProductSelectorWidgetView />
@@ -46,4 +46,4 @@ export const CatalogLayouGuildForumView: FC<CatalogLayoutProps> = props =>
             </Grid>
         </>
     );
-}
+};

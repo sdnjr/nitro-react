@@ -30,7 +30,7 @@ export const GroupInformationView: FC<GroupInformationViewProps> = props =>
 
             if(onClose) onClose();
         }, null);
-    }
+    };
 
     const getRoleIcon = () =>
     {
@@ -41,7 +41,7 @@ export const GroupInformationView: FC<GroupInformationViewProps> = props =>
         if(groupInformation.isAdmin) return <i className="icon icon-group-admin" title={ LocalizeText('group.youareadmin') } />;
 
         return <i className="icon icon-group-member" title={ LocalizeText('group.youaremember') } />;
-    }
+    };
 
     const getButtonText = () =>
     {
@@ -56,7 +56,7 @@ export const GroupInformationView: FC<GroupInformationViewProps> = props =>
         if(groupInformation.membershipType === GroupMembershipType.REQUEST_PENDING) return 'group.membershippending';
 
         if((groupInformation.membershipType === GroupMembershipType.NOT_MEMBER) && groupInformation.type === GroupType.EXCLUSIVE) return 'group.requestmembership';
-    }
+    };
 
     const handleButtonClick = () =>
     {
@@ -70,7 +70,7 @@ export const GroupInformationView: FC<GroupInformationViewProps> = props =>
         }
 
         joinGroup();
-    }
+    };
 
     const handleAction = (action: string) =>
     {
@@ -95,7 +95,7 @@ export const GroupInformationView: FC<GroupInformationViewProps> = props =>
                 CreateLinkEvent('navigator/search/groups');
                 break;
         }
-    }
+    };
 
     if(!groupInformation) return null;
 

@@ -29,11 +29,11 @@ export const FloorplanImportExportView: FC<FloorplanImportExportViewProps> = pro
             convertNumbersForSaving(originalFloorplanSettings.thicknessFloor),
             originalFloorplanSettings.wallHeight - 1
         ));
-    }
+    };
 
     UseMountEffect(() =>
     {
-        setMap(ConvertTileMapToString(originalFloorplanSettings.tilemap));  
+        setMap(ConvertTileMapToString(originalFloorplanSettings.tilemap));
     });
 
     return (
@@ -52,4 +52,4 @@ export const FloorplanImportExportView: FC<FloorplanImportExportViewProps> = pro
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

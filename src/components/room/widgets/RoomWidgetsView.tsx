@@ -169,4 +169,4 @@ export const RoomWidgetsView: FC<{}> = props =>
             <FriendRequestWidgetView />
         </>
     );
-}
+};

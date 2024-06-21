@@ -26,4 +26,4 @@ export const UserProfileIconView: FC<UserProfileIconViewProps> = props =>
             { children }
         </Base>
     );
-}
+};

@@ -24,8 +24,8 @@ export const FurniChooserWidgetView: FC<{}> = props =>
 
         return () => RemoveLinkEventTracker(linkTracker);
     }, [ populateChooser ]);
-    
+
     if(!items) return null;
 
     return <ChooserWidgetView title={ LocalizeText('widget.chooser.furni.title') } items={ items } selectItem={ selectItem } onClose={ onClose } />;
-}
+};

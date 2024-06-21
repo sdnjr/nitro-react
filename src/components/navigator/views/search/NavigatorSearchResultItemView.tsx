@@ -37,7 +37,7 @@ export const NavigatorSearchResultItemView: FC<NavigatorSearchResultItemViewProp
         }
 
         return bg;
-    }
+    };
 
     const visitRoom = (event: MouseEvent) =>
     {
@@ -56,10 +56,10 @@ export const NavigatorSearchResultItemView: FC<NavigatorSearchResultItemViewProp
                     setDoorData(prevValue =>
                     {
                         const newValue = { ...prevValue };
-        
+
                         newValue.roomInfo = roomData;
                         newValue.state = DoorStateType.START_DOORBELL;
-        
+
                         return newValue;
                     });
                     return;
@@ -67,18 +67,18 @@ export const NavigatorSearchResultItemView: FC<NavigatorSearchResultItemViewProp
                     setDoorData(prevValue =>
                     {
                         const newValue = { ...prevValue };
-        
+
                         newValue.roomInfo = roomData;
                         newValue.state = DoorStateType.START_PASSWORD;
-        
+
                         return newValue;
                     });
                     return;
             }
         }
-        
+
         CreateRoomSession(roomData.roomId);
-    }
+    };
 
     if(thumbnail) return (
         <Column pointer overflow="hidden" alignItems="center" onClick={ visitRoom } gap={ 0 } className="navigator-item p-1 bg-light rounded-3 small mb-1 flex-column border border-muted" { ...rest }>
@@ -88,7 +88,7 @@ export const NavigatorSearchResultItemView: FC<NavigatorSearchResultItemViewProp
                     <FaUser className="fa-icon" />
                     { roomData.userCount }
                 </Flex>
-                { (roomData.doorMode !== RoomDataParser.OPEN_STATE) && 
+                { (roomData.doorMode !== RoomDataParser.OPEN_STATE) &&
                 <i className={ ('position-absolute end-0 mb-1 me-1 icon icon-navigator-room-' + ((roomData.doorMode === RoomDataParser.DOORBELL_STATE) ? 'locked' : (roomData.doorMode === RoomDataParser.PASSWORD_STATE) ? 'password' : (roomData.doorMode === RoomDataParser.INVISIBLE_STATE) ? 'invisible' : '')) } /> }
             </LayoutRoomThumbnailView>
             <Flex className="w-100">
@@ -96,7 +96,7 @@ export const NavigatorSearchResultItemView: FC<NavigatorSearchResultItemViewProp
                 <Flex reverse alignItems="center" gap={ 1 }>
                     <NavigatorSearchResultItemInfoView roomData={ roomData } />
                 </Flex>
-                { children } 
+                { children }
             </Flex>
 
         </Column>
@@ -112,10 +112,10 @@ export const NavigatorSearchResultItemView: FC<NavigatorSearchResultItemViewProp
             <Flex reverse alignItems="center" gap={ 1 }>
                 <NavigatorSearchResultItemInfoView roomData={ roomData } />
                 { roomData.habboGroupId > 0 && <i className="icon icon-navigator-room-group" /> }
-                { (roomData.doorMode !== RoomDataParser.OPEN_STATE) && 
+                { (roomData.doorMode !== RoomDataParser.OPEN_STATE) &&
                     <i className={ ('icon icon-navigator-room-' + ((roomData.doorMode === RoomDataParser.DOORBELL_STATE) ? 'locked' : (roomData.doorMode === RoomDataParser.PASSWORD_STATE) ? 'password' : (roomData.doorMode === RoomDataParser.INVISIBLE_STATE) ? 'invisible' : '')) } /> }
             </Flex>
             { children }
         </Flex>
     );
-}
+};

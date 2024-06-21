@@ -23,14 +23,14 @@ export const ModToolsUserSendMessageView: FC<ModToolsUserSendMessageViewProps> =
         if(message.trim().length === 0)
         {
             simpleAlert('Please write a message to user.', null, null, null, 'Error', null);
-            
+
             return;
         }
 
         SendMessageComposer(new ModMessageMessageComposer(user.userId, message, -999));
 
         onCloseClick();
-    }
+    };
 
     return (
         <NitroCardView className="nitro-mod-tools-user-message" theme="primary-slim" windowPosition={ DraggableWindowPosition.TOP_LEFT }>
@@ -42,4 +42,4 @@ export const ModToolsUserSendMessageView: FC<ModToolsUserSendMessageViewProps> =
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

@@ -20,7 +20,7 @@ export const FurnitureYoutubeDisplayView: FC<{}> = FurnitureYoutubeDisplayViewPr
         setPlayer(event.target);
 
         if(objectId === -1) return;
-        
+
         switch(event.target.getPlayerState())
         {
             case -1:
@@ -35,7 +35,7 @@ export const FurnitureYoutubeDisplayView: FC<{}> = FurnitureYoutubeDisplayViewPr
             case 2:
                 if(currentVideoState !== 2) pause();
         }
-    }
+    };
 
     useEffect(() =>
     {
@@ -70,7 +70,7 @@ export const FurnitureYoutubeDisplayView: FC<{}> = FurnitureYoutubeDisplayViewPr
             start: videoStart,
             end: videoEnd
         }
-    }
+    };
 
     return (
         <NitroCardView className="youtube-tv-widget">
@@ -98,12 +98,12 @@ export const FurnitureYoutubeDisplayView: FC<{}> = FurnitureYoutubeDisplayViewPr
                                     <LayoutGridItem key={ index } onClick={ event => selectVideo(entry.video) } itemActive={ (entry.video === selectedVideo) }>
                                         <b>{ entry.title }</b>
                                     </LayoutGridItem>
-                                )
+                                );
                             }) }
                         </AutoGrid>
                     </div>
                 </div>
             </NitroCardContentView>
         </NitroCardView>
-    )
-}
+    );
+};

@@ -29,7 +29,7 @@ export const CatalogSpinnerWidgetView: FC<{}> = props =>
 
             return newValue;
         });
-    }
+    };
 
     if(!currentOffer || !currentOffer.bundlePurchaseAllowed) return null;
 
@@ -43,4 +43,4 @@ export const CatalogSpinnerWidgetView: FC<{}> = props =>
             </Flex>
         </>
     );
-}
+};

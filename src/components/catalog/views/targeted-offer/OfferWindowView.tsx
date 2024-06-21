@@ -19,27 +19,27 @@ export const OfferWindowView = (props: { offer: TargetedOfferData, setOpen: Disp
         let limit = false;
 
         if (offer.priceInCredits > 0) credits = getCurrencyAmount(-1) >= offer.priceInCredits;
-        
+
         if (offer.priceInActivityPoints > 0) points = getCurrencyAmount(offer.activityPointType) >= offer.priceInActivityPoints;
         else points = true;
 
         if (offer.purchaseLimit > 0) limit = true;
-        
+
         return (credits && points && limit);
-    },[ offer,getCurrencyAmount ])
+    },[ offer,getCurrencyAmount ]);
 
     const expirationTime = () =>
     {
-        let expirationTime = Math.max(0, (offer.expirationTime - Date.now() ) / 1000)
+        let expirationTime = Math.max(0, (offer.expirationTime - Date.now() ) / 1000);
 
         return FriendlyTime.format(expirationTime);
-    }
+    };
 
     const buyOffer = () =>
     {
         SendMessageComposer(new PurchaseTargetedOfferComposer(offer.id, amount));
         SendMessageComposer(new GetTargetedOfferComposer());
-    }
+    };
 
     if (!offer) return;
 
@@ -79,4 +79,4 @@ export const OfferWindowView = (props: { offer: TargetedOfferData, setOpen: Disp
             </Flex>
         </NitroCardContentView>
     </NitroCardView>;
-}
+};

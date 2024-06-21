@@ -27,19 +27,19 @@ const useMessengerState = () =>
             const friend = getFriend(userId);
 
             if(!friend) return null;
-    
+
             thread = new MessengerThread(friend);
 
             thread.addMessage(null, LocalizeText('messenger.moderationinfo'), 0, null, MessengerThreadChat.SECURITY_NOTIFICATION);
 
             thread.setRead();
-    
+
             setMessageThreads(prevValue =>
             {
                 const newValue = [ ...prevValue ];
-    
+
                 newValue.push(thread);
-    
+
                 return newValue;
             });
         }
@@ -52,16 +52,16 @@ const useMessengerState = () =>
                 setHiddenThreadIds(prevValue =>
                 {
                     const newValue = [ ...prevValue ];
-    
+
                     newValue.splice(hiddenIndex, 1);
-    
+
                     return newValue;
-                })
+                });
             }
         }
 
         return thread;
-    }
+    };
 
     const closeThread = (threadId: number) =>
     {
@@ -77,7 +77,7 @@ const useMessengerState = () =>
         });
 
         if(activeThreadId === threadId) setActiveThreadId(-1);
-    }
+    };
 
     const sendMessage = (thread: MessengerThread, senderId: number, messageText: string, secondsSinceSent: number = 0, extraData: string = null, messageType: number = MessengerThreadChat.CHAT) =>
     {
@@ -108,7 +108,7 @@ const useMessengerState = () =>
 
             return newValue;
         });
-    }
+    };
 
     useMessageEvent<NewConsoleMessageEvent>(NewConsoleMessageEvent, event =>
     {
@@ -133,8 +133,8 @@ const useMessengerState = () =>
     useMessageEvent<RoomInviteErrorEvent>(RoomInviteErrorEvent, event =>
     {
         const parser = event.getParser();
-        
-        simpleAlert(`Received room invite error: ${ parser.errorCode },recipients: ${ parser.failedRecipients }`, NotificationAlertType.DEFAULT, null, null, LocalizeText('friendlist.alert.title'));
+
+        simpleAlert(`Received room invite error: ${ parser.errorCode },recipients: ${ parser.failedRecipients.join(',') }`, NotificationAlertType.DEFAULT, null, null, LocalizeText('friendlist.alert.title'));
     });
 
     useEffect(() =>
@@ -182,6 +182,6 @@ const useMessengerState = () =>
     }, [ visibleThreads ]);
 
     return { messageThreads, activeThread, iconState, visibleThreads, getMessageThread, setActiveThreadId, closeThread, sendMessage };
-}
+};
 
 export const useMessenger = () => useBetween(useMessengerState);

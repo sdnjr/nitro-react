@@ -22,11 +22,11 @@ export const OfferView = () =>
     UseMountEffect(() =>
     {
         SendMessageComposer(new GetTargetedOfferComposer());
-    })
+    });
 
     if (!offer) return;
-    
+
     return <>
         { opened ? <OfferWindowView offer={ offer } setOpen={ setOpened } /> : <OfferBubbleView offer={ offer } setOpen={ setOpened } /> }
-    </>
-}
+    </>;
+};

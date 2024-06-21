@@ -17,7 +17,7 @@ export const WiredConditionActorIsTeamMemberView: FC<{}> = props =>
     {
         setSelectedTeam((trigger.intData.length > 0) ? trigger.intData[0] : 0);
     }, [ trigger ]);
-    
+
     return (
         <WiredConditionBaseView requiresFurni={ WiredFurniType.STUFF_SELECTION_OPTION_NONE } hasSpecialInput={ true } save={ save }>
             <Column gap={ 1 }>
@@ -29,9 +29,9 @@ export const WiredConditionActorIsTeamMemberView: FC<{}> = props =>
                             <input className="form-check-input" type="radio" name="selectedTeam" id={ `selectedTeam${ value }` } checked={ (selectedTeam === value) } onChange={ event => setSelectedTeam(value) } />
                             <Text>{ LocalizeText(`wiredfurni.params.team.${ value }`) }</Text>
                         </Flex>
-                    ) 
+                    );
                 }) }
             </Column>
         </WiredConditionBaseView>
     );
-}
+};

@@ -15,7 +15,7 @@ export const CatalogNavigationView: FC<CatalogNavigationViewProps> = props =>
 {
     const { node = null } = props;
     const { searchResult = null } = useCatalog();
-    
+
     return (
         <>
             <CatalogSearchView />
@@ -31,4 +31,4 @@ export const CatalogNavigationView: FC<CatalogNavigationViewProps> = props =>
             </Column>
         </>
     );
-}
+};

@@ -20,7 +20,7 @@ export const FurnitureCraftingView: FC<{}> = props =>
     {
         if(!requiredIngredients || !requiredIngredients.length) return false;
 
-        for (const ingredient of requiredIngredients) 
+        for (const ingredient of requiredIngredients)
         {
             const ingredientData = ingredients.find(data => (data.name === ingredient.itemName));
 
@@ -33,7 +33,7 @@ export const FurnitureCraftingView: FC<{}> = props =>
 
     const tryCraft = () =>
     {
-        if (!waitingToConfirm) 
+        if (!waitingToConfirm)
         {
             setWaitingToConfirm(true);
 
@@ -112,4 +112,4 @@ export const FurnitureCraftingView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

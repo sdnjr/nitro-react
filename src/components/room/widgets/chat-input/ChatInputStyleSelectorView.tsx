@@ -19,7 +19,7 @@ export const ChatInputStyleSelectorView: FC<ChatInputStyleSelectorViewProps> = p
     {
         selectChatStyleId(styleId);
         setSelectorVisible(false);
-    }
+    };
 
     const toggleSelector = (event: MouseEvent<HTMLElement>) =>
     {
@@ -33,7 +33,7 @@ export const ChatInputStyleSelectorView: FC<ChatInputStyleSelectorViewProps> = p
         });
 
         if(visible) setTarget((event.target as (EventTarget & HTMLElement)));
-    }
+    };
 
     useEffect(() =>
     {
@@ -65,4 +65,4 @@ export const ChatInputStyleSelectorView: FC<ChatInputStyleSelectorViewProps> = p
             </Overlay>
         </>
     );
-}
+};

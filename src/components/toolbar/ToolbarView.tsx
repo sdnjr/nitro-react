@@ -16,7 +16,7 @@ export const ToolbarView: FC<{ isInRoom: boolean }> = props =>
     const { requests = [] } = useFriends();
     const { iconState = MessengerIconState.HIDDEN } = useMessenger();
     const isMod = GetSessionDataManager().isModerator;
-    
+
     useMessageEvent<PerkAllowancesMessageEvent>(PerkAllowancesMessageEvent, event =>
     {
         const parser = event.getParser();
@@ -31,7 +31,7 @@ export const ToolbarView: FC<{ isInRoom: boolean }> = props =>
             const target = (document.body.getElementsByClassName(iconName)[0] as HTMLElement);
 
             if(!target) return;
-            
+
             image.className = 'toolbar-icon-animation';
             image.style.visibility = 'visible';
             image.style.left = (x + 'px');
@@ -58,7 +58,7 @@ export const ToolbarView: FC<{ isInRoom: boolean }> = props =>
             const motion = new Queue(new EaseOut(new JumpBy(image, wait, ((targetBounds.x - imageBounds.x) + height), (targetBounds.y - imageBounds.y), 100, 1), 1), new Dispose(image));
 
             Motions.runMotion(motion);
-        }
+        };
 
         animationIconToToolbar('icon-inventory', event.image, event.x, event.y);
     });
@@ -108,4 +108,4 @@ export const ToolbarView: FC<{ isInRoom: boolean }> = props =>
             </Flex>
         </>
     );
-}
+};

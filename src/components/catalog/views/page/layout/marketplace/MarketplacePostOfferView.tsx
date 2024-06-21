@@ -23,7 +23,7 @@ export const MarketplacePostOfferView : FC<{}> = props =>
         if(isNaN(newValue) || (newValue === askingPrice)) return;
 
         setAskingPrice(parseInt(price));
-    }
+    };
 
     useMessageEvent<MarketplaceConfigurationEvent>(MarketplaceConfigurationEvent, event =>
     {
@@ -51,7 +51,7 @@ export const MarketplacePostOfferView : FC<{}> = props =>
     useEffect(() =>
     {
         if(!item) return;
-        
+
         return () => setAskingPrice(0);
     }, [ item ]);
 
@@ -71,12 +71,12 @@ export const MarketplacePostOfferView : FC<{}> = props =>
             SendMessageComposer(new MakeOfferMessageComposer(askingPrice, item.isWallItem ? 2 : 1, item.id));
             setItem(null);
         },
-        () => 
+        () =>
         {
-            setItem(null) 
+            setItem(null);
         }, null, null, LocalizeText('inventory.marketplace.confirm_offer.title'));
-    }
-    
+    };
+
     return (
         <NitroCardView className="nitro-catalog-layout-marketplace-post-offer" theme="primary-slim">
             <NitroCardHeaderView headerText={ LocalizeText('inventory.marketplace.make_offer.title') } onCloseClick={ event => setItem(null) } />
@@ -117,5 +117,5 @@ export const MarketplacePostOfferView : FC<{}> = props =>
                 </Grid>
             </NitroCardContentView>
         </NitroCardView>
-    )
-}
+    );
+};

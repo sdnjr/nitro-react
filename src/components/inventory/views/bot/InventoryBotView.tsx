@@ -88,4 +88,4 @@ export const InventoryBotView: FC<InventoryBotViewProps> = props =>
             </Column>
         </Grid>
     );
-}
+};

@@ -28,7 +28,7 @@ export const NavigatorSearchResultView: FC<NavigatorSearchResultViewProps> = pro
         if(name.startsWith('${')) return name.slice(2, (name.length - 1));
 
         return ('navigator.searchcode.title.' + name);
-    }
+    };
 
     const toggleDisplayMode = () =>
     {
@@ -38,25 +38,25 @@ export const NavigatorSearchResultView: FC<NavigatorSearchResultViewProps> = pro
 
             return NavigatorSearchResultViewDisplayMode.LIST;
         });
-    }
-    
-    const showMore = () => 
+    };
+
+    const showMore = () =>
     {
         if(searchResult.action == 1) SendMessageComposer(new NavigatorSearchComposer(searchResult.code, ''));
         else if(searchResult.action == 2 && topLevelContext) SendMessageComposer(new NavigatorSearchComposer(topLevelContext.code,''));
-    }
+    };
 
     useEffect(() =>
     {
         if(!searchResult) return;
 
         setIsExtended(!searchResult.closed);
-        
+
         setDisplayMode(searchResult.mode);
     }, [ searchResult ]);
 
     const gridHasTwoColumns = (displayMode >= NavigatorSearchResultViewDisplayMode.THUMBNAILS);
-    
+
     return (
         <Column className="bg-white rounded border border-muted" gap={ 0 }>
             <Flex fullWidth alignItems="center" justifyContent="between" className="px-2 py-1">
@@ -72,7 +72,7 @@ export const NavigatorSearchResultView: FC<NavigatorSearchResultViewProps> = pro
                     { (searchResult.action > 0) && (searchResult.action !== 1) && <FaWindowRestore className="text-secondary fa-icon" onClick={ showMore } /> }
                 </Flex>
 
-            </Flex> { isExtended && 
+            </Flex> { isExtended &&
                 <>
                     {
                         gridHasTwoColumns ? <AutoGrid columnCount={ 3 } { ...rest } columnMinWidth={ 110 } columnMinHeight={ 130 } className="mx-2">
@@ -115,4 +115,4 @@ export const NavigatorSearchResultView: FC<NavigatorSearchResultViewProps> = pro
         //     </div>
         // </div>
     );
-}
+};

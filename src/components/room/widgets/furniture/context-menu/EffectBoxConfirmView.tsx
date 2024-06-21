@@ -19,8 +19,8 @@ export const EffectBoxConfirmView: FC<EffectBoxConfirmViewProps> = props =>
         roomSession.useMultistateItem(objectId);
 
         onClose();
-    }
-    
+    };
+
     return (
         <NitroCardView className="nitro-use-product-confirmation">
             <NitroCardHeaderView headerText={ LocalizeText('effectbox.header.title') } onCloseClick={ onClose } />
@@ -37,4 +37,4 @@ export const EffectBoxConfirmView: FC<EffectBoxConfirmViewProps> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

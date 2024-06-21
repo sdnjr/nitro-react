@@ -16,7 +16,7 @@ export const WiredConditionTimeElapsedMoreView: FC<{}> = props =>
     {
         setTime((trigger.intData.length > 0) ? trigger.intData[0] : 0);
     }, [ trigger ]);
-    
+
     return (
         <WiredConditionBaseView requiresFurni={ WiredFurniType.STUFF_SELECTION_OPTION_NONE } hasSpecialInput={ true } save={ save }>
             <Column gap={ 1 }>
@@ -30,4 +30,4 @@ export const WiredConditionTimeElapsedMoreView: FC<{}> = props =>
             </Column>
         </WiredConditionBaseView>
     );
-}
+};

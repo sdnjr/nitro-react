@@ -24,7 +24,7 @@ export const WidgetContainerView: FC<WidgetContainerViewProps> = props =>
         }
 
         return option;
-    }
+    };
 
   	return (
         <div className="widgetcontainer widget d-flex flex-row overflow-hidden">
@@ -36,4 +36,4 @@ export const WidgetContainerView: FC<WidgetContainerViewProps> = props =>
             </div>
         </div>
   	);
-}
+};

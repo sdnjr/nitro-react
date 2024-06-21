@@ -30,7 +30,7 @@ export const GroupCreatorView: FC<GroupCreatorViewProps> = props =>
         setGroupData(null);
 
         if(onClose) onClose();
-    }
+    };
 
     const buyGroup = () =>
     {
@@ -49,7 +49,7 @@ export const GroupCreatorView: FC<GroupCreatorViewProps> = props =>
         });
 
         SendMessageComposer(new GroupBuyComposer(groupData.groupName, groupData.groupDescription, groupData.groupHomeroomId, groupData.groupColors[0], groupData.groupColors[1], badge));
-    }
+    };
 
     const previousStep = () =>
     {
@@ -66,7 +66,7 @@ export const GroupCreatorView: FC<GroupCreatorViewProps> = props =>
         }
 
         setCurrentTab(value => value - 1);
-    }
+    };
 
     const nextStep = () =>
     {
@@ -83,7 +83,7 @@ export const GroupCreatorView: FC<GroupCreatorViewProps> = props =>
         }
 
         setCurrentTab(value => (value === 4 ? value : value + 1));
-    }
+    };
 
     useMessageEvent<GroupBuyDataEvent>(GroupBuyDataEvent, event =>
     {
@@ -111,7 +111,7 @@ export const GroupCreatorView: FC<GroupCreatorViewProps> = props =>
             groupColors: null,
             groupBadgeParts: null
         });
-        
+
         SendMessageComposer(new GroupBuyDataComposer());
     }, [ setGroupData ]);
 

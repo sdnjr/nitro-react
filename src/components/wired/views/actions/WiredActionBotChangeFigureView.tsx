@@ -35,4 +35,4 @@ export const WiredActionBotChangeFigureView: FC<{}> = props =>
             </Flex>
         </WiredActionBaseView>
     );
-}
+};

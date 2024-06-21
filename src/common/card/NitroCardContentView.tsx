@@ -15,4 +15,4 @@ export const NitroCardContentView: FC<ColumnProps> = props =>
     }, [ classNames ]);
 
     return <Column classNames={ getClassNames } overflow={ overflow } { ...rest } />;
-}
+};

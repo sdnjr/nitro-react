@@ -6,7 +6,7 @@ import { GameListView } from './views/GameListView';
 import { GameStageView } from './views/GameStageView';
 import { GameView } from './views/GameView';
 
-export const GameCenterView = () => 
+export const GameCenterView = () =>
 {
     const{ isVisible, setIsVisible, games, accountStatus } = useGameCenter();
 
@@ -15,14 +15,14 @@ export const GameCenterView = () =>
         const toggleGameCenter = () =>
         {
             setIsVisible(prev => !prev);
-        }
+        };
 
         const linkTracker: ILinkEventTracker = {
             linkReceived: (url: string) =>
             {
                 const value = url.split('/');
-                
-                switch(value[1]) 
+
+                switch(value[1])
                 {
                     case 'toggle':
                         toggleGameCenter();
@@ -38,12 +38,12 @@ export const GameCenterView = () =>
     }, [ setIsVisible ]);
 
     if(!isVisible || !games || !accountStatus) return;
-    
+
     return <Flex position="absolute" className="top-0 bottom-0 start-0 end-0 bg-black" justifyContent="center">
         <Flex className="game-center-main" column>
             <GameView/>
             <GameListView />
         </Flex>
         <GameStageView />
-    </Flex>
-}
+    </Flex>;
+};

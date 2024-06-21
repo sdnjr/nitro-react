@@ -7,9 +7,9 @@ export const useMessageEvent = <T extends IMessageEvent>(eventType: typeof Messa
     {
         //@ts-ignore
         const event = new eventType(handler);
-        
+
         GetCommunication().registerMessageEvent(event);
-        
+
         return () => GetCommunication().removeMessageEvent(event);
     }, [ eventType, handler ]);
-}
+};

@@ -49,4 +49,4 @@ export const ToolbarMeView: FC<PropsWithChildren<ToolbarMeViewProps>> = props =>
             { children }
         </Flex>
     );
-}
+};

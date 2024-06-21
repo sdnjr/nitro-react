@@ -23,7 +23,7 @@ export const PurseView: FC<{}> = props =>
         if(purse.clubLevel === HabboClubLevelEnum.NO_CLUB) return LocalizeText('purse.clubdays.zero.amount.text');
 
         else if((minutesUntilExpiration > -1) && (minutesUntilExpiration < (60 * 24))) return FriendlyTime.shortFormat(minutesUntilExpiration * 60);
-        
+
         else return FriendlyTime.shortFormat(totalDays * 86400);
     })();
 
@@ -57,7 +57,7 @@ export const PurseView: FC<{}> = props =>
         }
 
         return elements;
-    }
+    };
 
     if(!purse) return null;
 
@@ -87,4 +87,4 @@ export const PurseView: FC<{}> = props =>
             { getCurrencyElements(2, -1, true) }
         </Column>
     );
-}
+};

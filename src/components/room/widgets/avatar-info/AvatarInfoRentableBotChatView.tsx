@@ -13,7 +13,7 @@ interface AvatarInfoRentableBotChatViewProps
 export const AvatarInfoRentableBotChatView: FC<AvatarInfoRentableBotChatViewProps> = props =>
 {
     const { chatEvent = null, onClose = null } = props;
-    // eslint-disable-next-line no-template-curly-in-string
+
     const [ newText, setNewText ] = useState<string>(chatEvent.chat === '${bot.skill.chatter.configuration.text.placeholder}' ? '' : chatEvent.chat);
     const [ automaticChat, setAutomaticChat ] = useState<boolean>(chatEvent.automaticChat);
     const [ mixSentences, setMixSentences ] = useState<boolean>(chatEvent.mixSentences);
@@ -30,8 +30,8 @@ export const AvatarInfoRentableBotChatView: FC<AvatarInfoRentableBotChatViewProp
         SendMessageComposer(new BotSkillSaveComposer(chatEvent.botId, BotSkillsEnum.SETUP_CHAT, chatConfiguration));
 
         onClose();
-    }
-    
+    };
+
     return (
         <DraggableWindow windowPosition={ DraggableWindowPosition.NOTHING } handleSelector=".drag-handler" dragStyle={ { top: getObjectLocation.y, left: getObjectLocation.x } }>
             <Base className="nitro-context-menu bot-chat">
@@ -65,4 +65,4 @@ export const AvatarInfoRentableBotChatView: FC<AvatarInfoRentableBotChatViewProp
             </Base>
         </DraggableWindow>
     );
-}
+};

@@ -91,4 +91,4 @@ export const CatalogSearchView: FC<{}> = props =>
                 </Button> }
         </Flex>
     );
-}
+};

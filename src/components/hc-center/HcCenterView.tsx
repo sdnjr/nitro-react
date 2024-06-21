@@ -26,7 +26,7 @@ export const HcCenterView: FC<{}> = props =>
         }
 
         return FriendlyTime.shortFormat(((purse.clubPeriods * 31) + purse.clubDays) * 86400);
-    }
+    };
 
     const getInfoText = () =>
     {
@@ -39,7 +39,7 @@ export const HcCenterView: FC<{}> = props =>
             default:
                 return LocalizeText(`hccenter.status.${ clubStatus }.info`);
         }
-    }
+    };
 
     const getHcPaydayTime = () => (!kickbackData || kickbackData.timeUntilPayday < 60) ? LocalizeText('hccenter.special.time.soon') : FriendlyTime.shortFormat(kickbackData.timeUntilPayday * 60);
     const getHcPaydayAmount = () => LocalizeText('hccenter.special.sum', [ 'credits' ], [ (kickbackData?.creditRewardForStreakBonus + kickbackData?.creditRewardForMonthlySpent).toString() ]);
@@ -201,4 +201,4 @@ export const HcCenterView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

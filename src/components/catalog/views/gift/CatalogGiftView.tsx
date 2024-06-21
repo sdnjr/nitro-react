@@ -72,7 +72,7 @@ export const CatalogGiftView: FC<{}> = props =>
     const colourId = useMemo(() =>
     {
         return isBoxDefault ? boxTypes[selectedBoxIndex] : selectedColorId;
-    },[ isBoxDefault, boxTypes, selectedBoxIndex, selectedColorId ])
+    },[ isBoxDefault, boxTypes, selectedBoxIndex, selectedColorId ]);
 
     const allFriends = friends.filter( (friend: MessengerFriend) => friend.id !== -1 );
 
@@ -96,7 +96,7 @@ export const CatalogGiftView: FC<{}> = props =>
     {
         setReceiverName(friendName);
         setIsAutocompleteVisible(false);
-    }
+    };
 
     const handleAction = useCallback((action: string) =>
     {
@@ -169,8 +169,8 @@ export const CatalogGiftView: FC<{}> = props =>
             setMaxRibbonIndex(newPrev.length - 1);
 
             return newPrev;
-        })
-    },[ giftConfiguration ])
+        });
+    },[ giftConfiguration ]);
 
     useEffect(() =>
     {
@@ -201,7 +201,7 @@ export const CatalogGiftView: FC<{}> = props =>
         if (!isVisible) return;
 
         createBoxTypes();
-    },[ createBoxTypes, isVisible ])
+    },[ createBoxTypes, isVisible ]);
 
     if(!giftConfiguration || !giftConfiguration.isEnabled || !isVisible) return null;
 

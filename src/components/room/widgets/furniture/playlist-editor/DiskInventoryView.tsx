@@ -26,13 +26,13 @@ export const DiskInventoryView: FC<DiskInventoryViewProps> = props =>
     {
         event.stopPropagation();
 
-        addToPlaylist(diskId, GetSoundManager().musicController?.getRoomItemPlaylist()?.length)
+        addToPlaylist(diskId, GetSoundManager().musicController?.getRoomItemPlaylist()?.length);
     }, [ addToPlaylist ]);
 
     const openCatalogPage = () =>
     {
         CreateLinkEvent('catalog/open/' + CatalogPageName.TRAX_SONGS);
-    }
+    };
 
     useEffect(() =>
     {
@@ -43,7 +43,7 @@ export const DiskInventoryView: FC<DiskInventoryViewProps> = props =>
         return () =>
         {
             GetSoundManager().musicController?.stop(MusicPriorities.PRIORITY_SONG_PLAY);
-        }
+        };
     }, [ previewSongId ]);
 
     useEffect(() =>
@@ -79,7 +79,7 @@ export const DiskInventoryView: FC<DiskInventoryViewProps> = props =>
                                         </Button>
                                     </Flex>
                             }
-                        </LayoutGridItem>)
+                        </LayoutGridItem>);
                 }) }
             </AutoGrid>
         </div>
@@ -91,4 +91,4 @@ export const DiskInventoryView: FC<DiskInventoryViewProps> = props =>
         </div>
         <img src={ GetConfigurationValue('image.library.url') + 'playlist/background_get_more_music.gif' } className="get-more" />
     </>);
-}
+};

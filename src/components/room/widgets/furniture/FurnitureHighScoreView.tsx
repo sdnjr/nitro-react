@@ -57,4 +57,4 @@ export const FurnitureHighScoreView: FC<{}> = props =>
             }) }
         </>
     );
-}
+};

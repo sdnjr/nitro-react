@@ -20,4 +20,4 @@ export const NitroCardSubHeaderView: FC<NitroCardSubHeaderProps> = props =>
     }, [ classNames, variant ]);
 
     return <Flex justifyContent={ justifyContent } classNames={ getClassNames } { ...rest } />;
-}
+};

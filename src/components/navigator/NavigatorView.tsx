@@ -77,9 +77,9 @@ export const NavigatorView: FC<{}> = props =>
             linkReceived: (url: string) =>
             {
                 const parts = url.split('/');
-        
+
                 if(parts.length < 2) return;
-        
+
                 switch(parts[1])
                 {
                     case 'show': {
@@ -94,10 +94,10 @@ export const NavigatorView: FC<{}> = props =>
                         if(isVisible)
                         {
                             setIsVisible(false);
-        
+
                             return;
                         }
-        
+
                         setIsVisible(true);
                         setNeedsSearch(true);
                         return;
@@ -110,17 +110,17 @@ export const NavigatorView: FC<{}> = props =>
                         return;
                     case 'goto':
                         if(parts.length <= 2) return;
-        
+
                         switch(parts[2])
                         {
                             case 'home':
                                 if(navigatorData.homeRoomId <= 0) return;
-        
+
                                 TryVisitRoom(navigatorData.homeRoomId);
                                 break;
                             default: {
                                 const roomId = parseInt(parts[2]);
-        
+
                                 TryVisitRoom(roomId);
                             }
                         }
@@ -133,13 +133,13 @@ export const NavigatorView: FC<{}> = props =>
                         if(parts.length > 2)
                         {
                             const topLevelContextCode = parts[2];
-        
+
                             let searchValue = '';
-        
+
                             if(parts.length > 3) searchValue = parts[3];
-        
+
                             pendingSearch.current = { value: searchValue, code: topLevelContextCode };
-        
+
                             setIsVisible(true);
                             setNeedsSearch(true);
                         }
@@ -230,4 +230,4 @@ export const NavigatorView: FC<{}> = props =>
             <NavigatorRoomSettingsView />
         </>
     );
-}
+};

@@ -41,7 +41,7 @@ export const InventoryBadgeView: FC<{}> = props =>
                     {
                         if(isWearingBadge(badgeCode)) return null;
 
-                        return <InventoryBadgeItemView key={ index } badgeCode={ badgeCode } />
+                        return <InventoryBadgeItemView key={ index } badgeCode={ badgeCode } />;
                     }) }
                 </AutoGrid>
             </Column>
@@ -63,4 +63,4 @@ export const InventoryBadgeView: FC<{}> = props =>
             </Column>
         </Grid>
     );
-}
+};

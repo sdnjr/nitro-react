@@ -49,7 +49,7 @@ export const FriendsListView: FC<{}> = props =>
 
             if(existingUserIdIndex > -1)
             {
-                newValue.splice(existingUserIdIndex, 1)
+                newValue.splice(existingUserIdIndex, 1);
             }
             else
             {
@@ -63,11 +63,11 @@ export const FriendsListView: FC<{}> = props =>
     const sendRoomInvite = (message: string) =>
     {
         if(!selectedFriendsIds.length || !message || !message.length || (message.length > 255)) return;
-        
+
         SendMessageComposer(new SendRoomInviteComposer(message, selectedFriendsIds));
 
         setShowRoomInvite(false);
-    }
+    };
 
     const removeSelectedFriends = () =>
     {
@@ -81,7 +81,7 @@ export const FriendsListView: FC<{}> = props =>
         });
 
         setShowRemoveFriendsConfirmation(false);
-    }
+    };
 
     useEffect(() =>
     {
@@ -91,7 +91,7 @@ export const FriendsListView: FC<{}> = props =>
                 const parts = url.split('/');
 
                 if(parts.length < 2) return;
-        
+
                 switch(parts[1])
                 {
                     case 'show':
@@ -138,12 +138,12 @@ export const FriendsListView: FC<{}> = props =>
                         <Flex gap={ 1 } className="p-1">
                             <Button fullWidth onClick={ () => setShowRoomInvite(true) }>{ LocalizeText('friendlist.tip.invite') }</Button>
                             <Button fullWidth variant="danger" onClick={ event => setShowRemoveFriendsConfirmation(true) }>{ LocalizeText('generic.delete') }</Button>
-                        </Flex> } 
+                        </Flex> }
                 </NitroCardContentView>
             </NitroCardView>
             { showRoomInvite &&
                 <FriendsRoomInviteView selectedFriendsIds={ selectedFriendsIds } onCloseClick={ () => setShowRoomInvite(false) } sendRoomInvite={ sendRoomInvite } /> }
-            { showRemoveFriendsConfirmation && 
+            { showRemoveFriendsConfirmation &&
                 <FriendsRemoveConfirmationView selectedFriendsIds={ selectedFriendsIds } removeFriendsText={ removeFriendsText } onCloseClick={ () => setShowRemoveFriendsConfirmation(false) } removeSelectedFriends={ removeSelectedFriends } /> }
         </>
     );

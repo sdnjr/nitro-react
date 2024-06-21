@@ -17,9 +17,9 @@ export const NotificationSeachAlertView: FC<NotificationDefaultAlertViewProps> =
     const visitUrl = () =>
     {
         OpenUrl(item.clickUrl);
-        
+
         onClose();
-    }
+    };
 
     const updateSearchValue = (value: string) =>
     {
@@ -27,8 +27,8 @@ export const NotificationSeachAlertView: FC<NotificationDefaultAlertViewProps> =
 
         setResults(res.filter((val: string) => val.includes(value)));
         setSearchValue(value);
-    }
-    
+    };
+
     useEffect(() =>
     {
         setResults(JSON.parse(item.messages[0]));
@@ -44,8 +44,8 @@ export const NotificationSeachAlertView: FC<NotificationDefaultAlertViewProps> =
             <Column fullHeight className="py-1" overflow="hidden">
                 <AutoGrid gap={ 1 } columnCount={ 1 }>
                     { results && results.map((n, index) =>
-                    { 
-                        return <span key={ index }>{ n }</span>
+                    {
+                        return <span key={ index }>{ n }</span>;
                     }) }
                 </AutoGrid>
             </Column>
@@ -58,4 +58,4 @@ export const NotificationSeachAlertView: FC<NotificationDefaultAlertViewProps> =
             </Column>
         </LayoutNotificationAlertView>
     );
-}
+};

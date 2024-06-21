@@ -48,7 +48,7 @@ export const RoomToolsWidgetView: FC<{}> = props =>
                 SendMessageComposer(new NavigatorSearchComposer('hotel_view', `tag:${ value }`));
                 return;
         }
-    }
+    };
 
     useMessageEvent<GetGuestRoomResultEvent>(GetGuestRoomResultEvent, event =>
     {
@@ -97,4 +97,4 @@ export const RoomToolsWidgetView: FC<{}> = props =>
             </Column>
         </Flex>
     );
-}
+};

@@ -1,7 +1,7 @@
 import { FC, useMemo } from 'react';
 import { Base, BaseProps } from '../../common';
 
-type AvatarIconType = 'male' | 'female' | 'clear' | 'sellable' | string;
+type AvatarIconType = 'male' | 'female' | 'clear' | 'sellable';
 
 export const AvatarEditorIcon: FC<{
     icon: AvatarIconType;
@@ -23,5 +23,5 @@ export const AvatarEditorIcon: FC<{
         return newClassNames;
     }, [ icon, selected, classNames ]);
 
-    return <Base classNames={ getClassNames } { ...rest } />
-}
+    return <Base classNames={ getClassNames } { ...rest } />;
+};

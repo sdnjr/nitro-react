@@ -26,4 +26,4 @@ export const FurniturePlaylistEditorWidgetView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

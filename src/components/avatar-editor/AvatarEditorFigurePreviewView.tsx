@@ -24,7 +24,7 @@ export const AvatarEditorFigurePreviewView: FC<{}> = props =>
         }
 
         setDirection(newDirection);
-    }
+    };
 
     return (
         <Column className="figure-preview-container" overflow="hidden" position="relative">
@@ -37,4 +37,4 @@ export const AvatarEditorFigurePreviewView: FC<{}> = props =>
             </Base>
         </Column>
     );
-}
+};

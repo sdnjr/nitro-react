@@ -56,7 +56,7 @@ export const GroupTabSettingsView: FC<GroupTabSettingsViewProps> = props =>
 
         return () => setCloseAction(null);
     }, [ setCloseAction, saveSettings ]);
-    
+
     return (
         <Column overflow="auto">
             <Column>

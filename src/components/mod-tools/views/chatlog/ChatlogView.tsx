@@ -39,7 +39,7 @@ export const ChatlogView: FC<ChatlogViewProps> = props =>
                 });
             });
         });
-        
+
         return results;
     }, [ records ]);
 
@@ -57,7 +57,7 @@ export const ChatlogView: FC<ChatlogViewProps> = props =>
                 </Flex>
             </Flex>
         );
-    }
+    };
 
     return (
         <>
@@ -88,4 +88,4 @@ export const ChatlogView: FC<ChatlogViewProps> = props =>
             </Column>
         </>
     );
-}
+};

@@ -110,4 +110,4 @@ export const CatalogLayoutSoundMachineView: FC<CatalogLayoutProps> = props =>
             </Grid>
         </>
     );
-}
+};

@@ -20,32 +20,32 @@ export const SongPlaylistView: FC<SongPlaylistViewProps> = props =>
     const action = (index: number) =>
     {
         if(selectedItem === index) removeFromPlaylist(index);
-    }
+    };
 
     const playPause = (furniId: number, selectedItem: number) =>
     {
-        togglePlayPause(furniId, selectedItem !== -1 ? selectedItem : 0 )
-    }
+        togglePlayPause(furniId, selectedItem !== -1 ? selectedItem : 0 );
+    };
 
     return (<>
-        <div className="bg-primary py-3 container-fluid justify-content-center d-flex rounded">
-            <img src={ GetConfigurationValue('image.library.url') + 'playlist/title_playlist.gif' } className="playlist-img" />
+        <div className="py-3 rounded bg-primary container-fluid justify-content-center d-flex">
+            <img src={ `${ GetConfigurationValue('image.library.url') }playlist/title_playlist.gif` } className="playlist-img" />
             <h2 className="ms-4">{ LocalizeText('playlist.editor.playlist') }</h2>
         </div>
-        <div className="h-100 overflow-y-scroll py-2">
+        <div className="py-2 overflow-y-scroll h-100">
             <Flex column gap={ 2 }>
                 { playlist && playlist.map( (songInfo, index) =>
                 {
                     return <Flex gap={ 1 } key={ index } className={ 'text-black cursor-pointer ' + (selectedItem === index ? 'border border-muted border-2 rounded' : 'border-2') } alignItems="center" onClick={ () => setSelectedItem(prev => prev === index ? -1 : index) }>
                         <Base onClick={ () => action(index) } className={ 'disk-2 ' + (selectedItem === index ? 'selected-song' : '') } style={ { backgroundColor: (selectedItem === index ? '' : GetDiskColor(songInfo.songData)) } }/>
                         { songInfo.name }
-                    </Flex>
+                    </Flex>;
                 }) }
 
             </Flex>
         </div>
         { (!playlist || playlist.length === 0 ) &&
-        <><div className="playlist-bottom text-black p-1 ms-5">
+        <><div className="p-1 text-black playlist-bottom ms-5">
             <h5>{ LocalizeText('playlist.editor.add.songs.to.your.playlist') }</h5>
             <div>{ LocalizeText('playlist.editor.text.click.song.to.choose.click.again.to.move') }</div>
         </div>
@@ -76,4 +76,4 @@ export const SongPlaylistView: FC<SongPlaylistViewProps> = props =>
         }
 
     </>);
-}
+};

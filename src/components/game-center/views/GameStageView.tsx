@@ -4,7 +4,7 @@ import { SendMessageComposer } from '../../../api';
 import { Base } from '../../../common';
 import { useGameCenter } from '../../../hooks';
 
-export const GameStageView = () => 
+export const GameStageView = () =>
 {
     const { gameURL,setGameURL } = useGameCenter();
     const [ loadTimes, setLoadTimes ] = useState<number>(0);
@@ -22,10 +22,10 @@ export const GameStageView = () =>
         frame.classList.add('game-center-stage');
         frame.classList.add('h-100');
 
-        frame.onload = () => 
-        {   
-            setLoadTimes(prev => prev += 1)
-        }
+        frame.onload = () =>
+        {
+            setLoadTimes(prev => prev += 1);
+        };
 
         ref.current.innerHTML = '';
         ref.current.appendChild(frame);
@@ -34,14 +34,14 @@ export const GameStageView = () =>
 
     useEffect(()=>
     {
-        if(loadTimes > 1) 
+        if(loadTimes > 1)
         {
             setGameURL(null);
             SendMessageComposer(new Game2ExitGameMessageComposer());
         }
-    },[ loadTimes,setGameURL ])
+    },[ loadTimes,setGameURL ]);
 
     if(!gameURL) return null;
 
-    return <Base innerRef={ ref }className="game-center-stage"/>
-}
+    return <Base innerRef={ ref }className="game-center-stage"/>;
+};

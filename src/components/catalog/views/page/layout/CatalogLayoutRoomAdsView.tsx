@@ -30,7 +30,7 @@ export const CatalogLayoutRoomAdsView: FC<CatalogLayoutProps> = props =>
             setIsExtended(false); // This is from hook useRoomPromotte
         }
 
-    }, [ isExtended, eventName, eventDesc, categoryId ]);
+    }, [ isExtended, eventName, eventDesc, categoryId, promoteInformation, setIsExtended ]);
 
     const resetData = () =>
     {
@@ -40,7 +40,7 @@ export const CatalogLayoutRoomAdsView: FC<CatalogLayoutProps> = props =>
         setCategoryId(1);
         setIsExtended(false);
         setIsVisible(false);
-    }
+    };
 
     const purchaseAd = () =>
     {
@@ -53,7 +53,7 @@ export const CatalogLayoutRoomAdsView: FC<CatalogLayoutProps> = props =>
 
         SendMessageComposer(new PurchaseRoomAdMessageComposer(pageId, offerId, flatId, name, extended, desc, catId));
         resetData();
-    }
+    };
 
     useMessageEvent<RoomAdPurchaseInfoEvent>(RoomAdPurchaseInfoEvent, event =>
     {
@@ -75,7 +75,7 @@ export const CatalogLayoutRoomAdsView: FC<CatalogLayoutProps> = props =>
         <Text bold center>{ LocalizeText('roomad.catalog_header') }</Text>
         <Column size={ 12 } overflow="hidden" className="text-black">
             <Base>{ LocalizeText('roomad.catalog_text', [ 'duration' ], [ '120' ]) }</Base>
-            <Base className="bg-muted rounded p-1">
+            <Base className="p-1 rounded bg-muted">
                 <Column gap={ 2 }>
                     <Text bold>{ LocalizeText('navigator.category') }</Text>
                     <select className="form-select form-select-sm" value={ categoryId } onChange={ event => setCategoryId(parseInt(event.target.value)) } disabled={ extended }>
@@ -104,7 +104,7 @@ export const CatalogLayoutRoomAdsView: FC<CatalogLayoutProps> = props =>
         </Column>
     </>
     );
-}
+};
 
 interface INavigatorCategory {
     id: number;

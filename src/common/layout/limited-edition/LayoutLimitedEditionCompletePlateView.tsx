@@ -38,4 +38,4 @@ export const LayoutLimitedEditionCompletePlateView: FC<LayoutLimitedEditionCompl
             </Column>
         </Base>
     );
-}
+};

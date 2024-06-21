@@ -74,7 +74,7 @@ export const LayoutBadgeImageView: FC<LayoutBadgeImageViewProps> = props =>
             didSetBadge = true;
 
             GetEventDispatcher().removeEventListener(BadgeImageReadyEvent.IMAGE_READY, onBadgeImageReadyEvent);
-        }
+        };
 
         GetEventDispatcher().addEventListener(BadgeImageReadyEvent.IMAGE_READY, onBadgeImageReadyEvent);
 
@@ -103,4 +103,4 @@ export const LayoutBadgeImageView: FC<LayoutBadgeImageViewProps> = props =>
             { children }
         </Base>
     );
-}
+};

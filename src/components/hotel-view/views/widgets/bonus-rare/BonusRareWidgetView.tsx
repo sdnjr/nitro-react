@@ -39,4 +39,4 @@ export const BonusRareWidgetView: FC<BonusRareWidgetViewProps> = props =>
             </div>
         </div>
     );
-}
+};

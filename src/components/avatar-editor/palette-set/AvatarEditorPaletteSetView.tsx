@@ -20,7 +20,7 @@ export const AvatarEditorPaletteSetView: FC<{
         const selectedColorPart = selectedColorParts[category.setType][paletteIndex];
 
         return (selectedColorPart.id === partColor.id);
-    }
+    };
 
     return (
         <InfiniteGrid rows={ category.colorItems[paletteIndex] } columnCount={ 5 } overscan={ 5 } itemRender={ (item: IPartColor) =>
@@ -29,7 +29,7 @@ export const AvatarEditorPaletteSetView: FC<{
 
             return (
                 <AvatarEditorPaletteSetItem setType={ category.setType } partColor={ item } isSelected={ isPartColorSelected(item) } onClick={ event => selectEditorColor(category.setType, paletteIndex, item.id) } />
-            )
+            );
         } } />
     );
-}
+};

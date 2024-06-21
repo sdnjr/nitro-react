@@ -57,4 +57,4 @@ export const ModToolsUserRoomVisitsView: FC<ModToolsUserRoomVisitsViewProps> = p
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

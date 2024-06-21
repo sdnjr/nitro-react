@@ -16,7 +16,7 @@ export const CatalogNavigationItemView: FC<CatalogNavigationItemViewProps> = pro
 {
     const { node = null, child = false } = props;
     const { activateNode = null } = useCatalog();
-    
+
     return (
         <Base className="nitro-catalog-navigation-section">
             <LayoutGridItem gap={ 1 } column={ false } itemActive={ node.isActive } onClick={ event => activateNode(node) } className={ child ? 'inset' : '' }>
@@ -32,4 +32,4 @@ export const CatalogNavigationItemView: FC<CatalogNavigationItemViewProps> = pro
                 <CatalogNavigationSetView node={ node } child={ true } /> }
         </Base>
     );
-}
+};

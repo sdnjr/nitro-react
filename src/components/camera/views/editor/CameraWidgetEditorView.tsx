@@ -53,12 +53,12 @@ export const CameraWidgetEditorView: FC<CameraWidgetEditorViewProps> = props =>
         if(!name || !name.length || !selectedEffects || !selectedEffects.length) return -1;
 
         return selectedEffects.findIndex(effect => (effect.effect.name === name));
-    }, [ selectedEffects ])
+    }, [ selectedEffects ]);
 
     const getCurrentEffectIndex = useMemo(() =>
     {
-        return getSelectedEffectIndex(selectedEffectName)
-    }, [ selectedEffectName, getSelectedEffectIndex ])
+        return getSelectedEffectIndex(selectedEffectName);
+    }, [ selectedEffectName, getSelectedEffectIndex ]);
 
     const getCurrentEffect = useMemo(() =>
     {
@@ -104,7 +104,7 @@ export const CameraWidgetEditorView: FC<CameraWidgetEditorViewProps> = props =>
                 let existingIndex = getSelectedEffectIndex(effectName);
 
                 if(existingIndex >= 0) return;
-                
+
                 const effect = availableEffects.find(effect => (effect.name === effectName));
 
                 if(!effect) return;
@@ -142,9 +142,9 @@ export const CameraWidgetEditorView: FC<CameraWidgetEditorViewProps> = props =>
                 (async () =>
                 {
                     const image = new Image();
-                            
-                    image.src = currentPictureUrl
-                                
+
+                    image.src = currentPictureUrl;
+
                     const newWindow = window.open('');
                     newWindow.document.write(image.outerHTML);
                 })();
@@ -161,7 +161,7 @@ export const CameraWidgetEditorView: FC<CameraWidgetEditorViewProps> = props =>
         (async () =>
         {
             const thumbnails: CameraPictureThumbnail[] = [];
-            
+
             for await (const effect of availableEffects)
             {
                 const image = await GetRoomCameraWidgetManager().applyEffects(picture.texture, [ new RoomCameraWidgetSelectedEffect(effect, 1) ], false);
@@ -189,7 +189,7 @@ export const CameraWidgetEditorView: FC<CameraWidgetEditorViewProps> = props =>
             <NitroCardTabsView>
                 { TABS.map(tab =>
                 {
-                    return <NitroCardTabsItemView key={ tab } isActive={ currentTab === tab } onClick={ event => processAction('change_tab', tab) }><i className={ 'icon icon-camera-' + tab }></i></NitroCardTabsItemView>
+                    return <NitroCardTabsItemView key={ tab } isActive={ currentTab === tab } onClick={ event => processAction('change_tab', tab) }><i className={ 'icon icon-camera-' + tab }></i></NitroCardTabsItemView>;
                 }) }
             </NitroCardTabsView>
             <NitroCardContentView>
@@ -240,4 +240,4 @@ export const CameraWidgetEditorView: FC<CameraWidgetEditorViewProps> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

@@ -13,4 +13,4 @@ export const FriendsMessengerThreadView: FC<{ thread: MessengerThread }> = props
             { (thread.groups.length > 0) && thread.groups.map((group, index) => <FriendsMessengerThreadGroup key={ index } thread={ thread } group={ group } />) }
         </>
     );
-}
+};

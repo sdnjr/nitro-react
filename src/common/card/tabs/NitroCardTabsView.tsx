@@ -19,4 +19,4 @@ export const NitroCardTabsView: FC<FlexProps> = props =>
             { children }
         </Flex>
     );
-}
+};

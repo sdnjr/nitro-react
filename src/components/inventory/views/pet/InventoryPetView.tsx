@@ -87,4 +87,4 @@ export const InventoryPetView: FC<InventoryPetViewProps> = props =>
             </Column>
         </Grid>
     );
-}
+};

@@ -24,4 +24,4 @@ export const WiredActionBotTeleportView: FC<{}> = props =>
             </Column>
         </WiredActionBaseView>
     );
-}
+};

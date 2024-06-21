@@ -34,7 +34,7 @@ export const AvatarEditorView: FC<{}> = props =>
                 setIsVisible(false);
                 return;
         }
-    }
+    };
 
     useEffect(() =>
     {
@@ -42,9 +42,9 @@ export const AvatarEditorView: FC<{}> = props =>
             linkReceived: (url: string) =>
             {
                 const parts = url.split('/');
-        
+
                 if(parts.length < 2) return;
-        
+
                 switch(parts[1])
                 {
                     case 'show':
@@ -68,7 +68,7 @@ export const AvatarEditorView: FC<{}> = props =>
 
     useEffect(() =>
     {
-        setEditorVisibility(isVisible)
+        setEditorVisibility(isVisible);
     }, [ isVisible, setEditorVisibility ]);
 
     if(!isVisible) return null;
@@ -119,4 +119,4 @@ export const AvatarEditorView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

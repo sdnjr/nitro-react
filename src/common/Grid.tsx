@@ -60,4 +60,4 @@ export const Grid: FC<GridProps> = props =>
             <Base fullHeight={ fullHeight } classNames={ getClassNames } style={ getStyle } { ...rest } />
         </GridContextProvider>
     );
-}
+};

@@ -35,4 +35,4 @@ export const WiredTriggerAvatarEnterRoomView: FC<{}> = props =>
             </Column>
         </WiredTriggerBaseView>
     );
-}
+};

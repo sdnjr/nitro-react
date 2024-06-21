@@ -14,7 +14,7 @@ const colorMap = {
     'orange': 10841125,
     'turquoise': 2661026,
     'red': 10104881
-}
+};
 
 export const MysteryBoxExtensionView: FC<{}> = props =>
 {
@@ -33,7 +33,7 @@ export const MysteryBoxExtensionView: FC<{}> = props =>
         const colorInt = colorMap[color];
 
         return ColorUtils.int2rgb(colorInt);
-    }
+    };
 
     if(keyColor === '' && boxColor === '') return null;
 
@@ -64,4 +64,4 @@ export const MysteryBoxExtensionView: FC<{}> = props =>
             </Column>
         </Base>
     );
-}
+};

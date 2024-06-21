@@ -15,7 +15,7 @@ export const WiredConditionActorIsWearingBadgeView: FC<{}> = props =>
     {
         setBadge(trigger.stringData);
     }, [ trigger ]);
-    
+
     return (
         <WiredConditionBaseView requiresFurni={ WiredFurniType.STUFF_SELECTION_OPTION_NONE } hasSpecialInput={ true } save={ save }>
             <Column gap={ 1 }>
@@ -24,4 +24,4 @@ export const WiredConditionActorIsWearingBadgeView: FC<{}> = props =>
             </Column>
         </WiredConditionBaseView>
     );
-}
+};

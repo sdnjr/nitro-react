@@ -65,7 +65,7 @@ export const FriendsSearchView: FC<FriendsSearchViewProps> = props =>
                                                     <Base className="nitro-friends-spritesheet icon-chat cursor-pointer" onClick={ event => OpenMessengerChat(result.avatarId) } title={ LocalizeText('friendlist.tip.im') } /> }
                                                 </Flex>
                                             </NitroCardAccordionItemView>
-                                        )
+                                        );
                                     }) }
                                 </Column>
                             </Column> }
@@ -92,7 +92,7 @@ export const FriendsSearchView: FC<FriendsSearchViewProps> = props =>
                                                     <Base className="nitro-friends-spritesheet icon-add cursor-pointer" onClick={ event => requestFriend(result.avatarId, result.avatarName) } title={ LocalizeText('friendlist.tip.addfriend') } /> }
                                                 </Flex>
                                             </NitroCardAccordionItemView>
-                                        )
+                                        );
                                     }) }
                                 </Column>
                             </Column> }
@@ -100,4 +100,4 @@ export const FriendsSearchView: FC<FriendsSearchViewProps> = props =>
             </Column>
         </NitroCardAccordionSetView>
     );
-}
+};

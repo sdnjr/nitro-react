@@ -95,7 +95,7 @@ export const ContextMenuView: FC<ContextMenuViewProps> = props =>
     const getClassNames = useMemo(() =>
     {
         const newClassNames: string[] = [ 'nitro-context-menu' ];
-        
+
         if (isCollapsed) newClassNames.push('menu-hidden');
 
         newClassNames.push((pos.x !== null) ? 'visible' : 'invisible');
@@ -121,7 +121,7 @@ export const ContextMenuView: FC<ContextMenuViewProps> = props =>
     useEffect(() =>
     {
         if(!elementRef.current) return;
-        
+
         const update = (ticker: NitroTicker) =>
         {
             if(!elementRef.current) return;
@@ -132,14 +132,14 @@ export const ContextMenuView: FC<ContextMenuViewProps> = props =>
             const location = GetRoomObjectScreenLocation(GetRoomSession().roomId, objectId, category);
 
             updatePosition(bounds, location);
-        }
+        };
 
         GetTicker().add(update);
 
         return () =>
         {
             GetTicker().remove(update);
-        }
+        };
     }, [ objectId, category, updateFade, updatePosition ]);
 
     useEffect(() =>
@@ -162,9 +162,9 @@ export const ContextMenuView: FC<ContextMenuViewProps> = props =>
         MAX_STACK = -1000000;
         FADE_TIME = 1;
     }, []);
-    
+
     return <Base innerRef={ elementRef } position={ position } classNames={ getClassNames } style={ getStyle } { ...rest }>
         { !(collapsable && COLLAPSED) && children }
         { collapsable && <ContextMenuCaretView onClick={ () => setIsCollapsed(!isCollapsed) } collapsed={ isCollapsed } /> }
     </Base>;
-}
+};

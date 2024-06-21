@@ -24,7 +24,7 @@ export const CatalogRedeemVoucherView: FC<CatalogRedeemVoucherViewProps> = props
         SendMessageComposer(new RedeemVoucherMessageComposer(voucher));
 
         setIsWaiting(true);
-    }
+    };
 
     useMessageEvent<VoucherRedeemOkMessageEvent>(VoucherRedeemOkMessageEvent, event =>
     {
@@ -35,7 +35,7 @@ export const CatalogRedeemVoucherView: FC<CatalogRedeemVoucherViewProps> = props
         if(parser.productName) message = LocalizeText('catalog.alert.voucherredeem.ok.description.furni', [ 'productName', 'productDescription' ], [ parser.productName, parser.productDescription ]);
 
         simpleAlert(message, null, null, null, LocalizeText('catalog.alert.voucherredeem.ok.title'));
-        
+
         setIsWaiting(false);
         setVoucher('');
     });
@@ -57,4 +57,4 @@ export const CatalogRedeemVoucherView: FC<CatalogRedeemVoucherViewProps> = props
             </Button>
         </Flex>
     );
-}
+};

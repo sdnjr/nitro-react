@@ -14,7 +14,7 @@ interface WordQuizQuestionViewProps
 export const WordQuizQuestionView: FC<WordQuizQuestionViewProps> = props =>
 {
     const { question = null, canVote = null, vote = null, noVotes = null, yesVotes = null } = props;
-    
+
     return (
         <Column gap={ 2 } className="wordquiz-question p-2">
             { !canVote &&
@@ -41,4 +41,4 @@ export const WordQuizQuestionView: FC<WordQuizQuestionViewProps> = props =>
                 </Column> }
         </Column>
     );
-}
+};

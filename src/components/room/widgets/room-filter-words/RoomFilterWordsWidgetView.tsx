@@ -31,19 +31,19 @@ export const RoomFilterWordsWidgetView: FC<{}> = props =>
 
             return newWords;
         });
-    }
+    };
 
     const onTyping = (word: string) =>
     {
         setWord(word);
         setIsSelectingWord(false);
-    }
+    };
 
     const onSelectedWord = (word: string) =>
     {
         setSelectedWord(word);
         setIsSelectingWord(true);
-    }
+    };
 
     if (!isVisible) return null;
 
@@ -62,7 +62,7 @@ export const RoomFilterWordsWidgetView: FC<{}> = props =>
                             <Flex key={ index } alignItems="center" className={ classNames('rounded p-1', (selectedWord === word) && 'bg-muted') } pointer onClick={ event => onSelectedWord(word) }>
                                 <Text truncate>{ word }</Text>
                             </Flex>
-                        )
+                        );
                     }) }
                 </Column>
                 <Grid className="d-flex align-items-center justify-content-end gap-2">

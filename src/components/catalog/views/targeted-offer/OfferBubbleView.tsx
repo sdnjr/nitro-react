@@ -13,4 +13,4 @@ export const OfferBubbleView = (props: { offer: TargetedOfferData, setOpen: Disp
         <Base className="nitro-targeted-offer-icon" style={ { backgroundImage: `url(${ GetConfigurationValue('image.library.url') + offer.iconImageUrl })` } }/>
         <Text variant="light" className="ubuntu-bold">{ offer.title }</Text>
     </LayoutNotificationBubbleView>;
-}
+};

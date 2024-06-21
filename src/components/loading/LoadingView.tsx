@@ -8,7 +8,7 @@ interface LoadingViewProps
 export const LoadingView: FC<LoadingViewProps> = props =>
 {
     const {} = props;
-    
+
     return (
         <Column fullHeight position="relative" className="nitro-loading">
             <Base fullHeight className="container h-100">
@@ -18,4 +18,4 @@ export const LoadingView: FC<LoadingViewProps> = props =>
             </Base>
         </Column>
     );
-}
+};

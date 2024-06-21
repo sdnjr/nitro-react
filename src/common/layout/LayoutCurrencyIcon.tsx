@@ -23,7 +23,7 @@ export const LayoutCurrencyIcon: FC<CurrencyIconProps> = props =>
     const urlString = useMemo(() =>
     {
         let url = GetConfigurationValue<string>('currency.asset.icon.url', '');
-    
+
         url = url.replace('%type%', type.toString());
 
         return `url(${ url })`;
@@ -40,5 +40,5 @@ export const LayoutCurrencyIcon: FC<CurrencyIconProps> = props =>
         return newStyle;
     }, [ style, urlString ]);
 
-    return <Base classNames={ getClassNames } style={ getStyle } { ...rest } />
-}
+    return <Base classNames={ getClassNames } style={ getStyle } { ...rest } />;
+};

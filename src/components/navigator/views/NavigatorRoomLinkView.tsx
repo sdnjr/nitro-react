@@ -14,7 +14,7 @@ export const NavigatorRoomLinkView: FC<NavigatorRoomLinkViewProps> = props =>
     const { navigatorData = null } = useNavigator();
 
     if(!navigatorData.enteredGuestRoom) return null;
-    
+
     return (
         <NitroCardView className="nitro-room-link" theme="primary-slim">
             <NitroCardHeaderView headerText={ LocalizeText('navigator.embed.title') } onCloseClick={ onCloseClick } />

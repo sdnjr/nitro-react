@@ -18,6 +18,6 @@ const useRoomPromoteState = () =>
     });
 
     return { promoteInformation, isExtended, setPromoteInformation, setIsExtended };
-}
+};
 
 export const useRoomPromote = () => useBetween(useRoomPromoteState);

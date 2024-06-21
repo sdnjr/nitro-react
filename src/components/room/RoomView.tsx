@@ -43,4 +43,4 @@ export const RoomView: FC<{}> = props =>
                 </> }
         </Base>
     );
-}
+};

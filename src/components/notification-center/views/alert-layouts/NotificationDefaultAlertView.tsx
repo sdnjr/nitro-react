@@ -10,24 +10,24 @@ interface NotificationDefaultAlertViewProps extends LayoutNotificationAlertViewP
 export const NotificationDefaultAlertView: FC<NotificationDefaultAlertViewProps> = props =>
 {
     const { item = null, title = ((props.item && props.item.title) || ''), onClose = null, ...rest } = props;
-    const [ imageFailed, setImageFailed ] = useState<boolean>(false)
+    const [ imageFailed, setImageFailed ] = useState<boolean>(false);
 
     const visitUrl = () =>
     {
         OpenUrl(item.clickUrl);
-        
+
         onClose();
-    }
-    
+    };
+
     const hasFrank = (item.alertType === NotificationAlertType.DEFAULT);
 
     return (
         <LayoutNotificationAlertView title={ title } onClose={ onClose } { ...rest } type={ hasFrank ? NotificationAlertType.DEFAULT : item.alertType }>
             <Flex fullHeight overflow="auto" gap={ hasFrank || (item.imageUrl && !imageFailed) ? 2 : 0 }>
                 { hasFrank && !item.imageUrl && <Base className="notification-frank flex-shrink-0" /> }
-                { item.imageUrl && !imageFailed && <img src={ item.imageUrl } alt={ item.title } onError={ () => 
+                { item.imageUrl && !imageFailed && <img src={ item.imageUrl } alt={ item.title } onError={ () =>
                 {
-                    setImageFailed(true) 
+                    setImageFailed(true);
                 } } className="align-self-baseline" /> }
                 <Base classNames={ [ 'notification-text overflow-y-auto d-flex flex-column w-100', (item.clickUrl && !hasFrank) ? 'justify-content-center' : '' ] }>
                     { (item.messages.length > 0) && item.messages.map((message, index) =>
@@ -53,4 +53,4 @@ export const NotificationDefaultAlertView: FC<NotificationDefaultAlertViewProps>
         </LayoutNotificationAlertView>
     );
 
-}
+};

@@ -28,7 +28,7 @@ export const WiredActionGiveRewardView: FC<{}> = props =>
 
             return newValues;
         });
-    }
+    };
 
     const updateReward = (index: number, isBadge: boolean, itemCode: string, probability: number) =>
     {
@@ -42,10 +42,10 @@ export const WiredActionGiveRewardView: FC<{}> = props =>
         reward.probability = probability;
 
         setRewards(rewardsClone);
-    }
+    };
 
     const save = () =>
-    {       
+    {
         let stringRewards = [];
 
         for(const reward of rewards)
@@ -61,7 +61,7 @@ export const WiredActionGiveRewardView: FC<{}> = props =>
             setStringParam(stringRewards.join(';'));
             setIntParams([ rewardTime, uniqueRewards ? 1 : 0, rewardsLimit, limitationInterval ]);
         }
-    }
+    };
 
     useEffect(() =>
     {
@@ -152,9 +152,9 @@ export const WiredActionGiveRewardView: FC<{}> = props =>
                                 <FaTrash className="fa-icon" />
                             </Button> }
                         </Flex>
-                    )
+                    );
                 }) }
             </Column>
         </WiredActionBaseView>
     );
-}
+};

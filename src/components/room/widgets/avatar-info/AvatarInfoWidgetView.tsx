@@ -89,13 +89,13 @@ export const AvatarInfoWidgetView: FC<{}> = props =>
                     return <AvatarInfoWidgetPetView avatarInfo={ info } onClose={ () => setAvatarInfo(null) } />;
                 }
                 case AvatarInfoRentableBot.RENTABLE_BOT: {
-                    return <AvatarInfoWidgetRentableBotView avatarInfo={ (avatarInfo as AvatarInfoRentableBot) } onClose={ () => setAvatarInfo(null) } />
+                    return <AvatarInfoWidgetRentableBotView avatarInfo={ (avatarInfo as AvatarInfoRentableBot) } onClose={ () => setAvatarInfo(null) } />;
                 }
             }
         }
 
         return null;
-    }
+    };
 
     const getInfostandView = () =>
     {
@@ -113,9 +113,9 @@ export const AvatarInfoWidgetView: FC<{}> = props =>
             case AvatarInfoRentableBot.RENTABLE_BOT:
                 return <InfoStandWidgetRentableBotView avatarInfo={ (avatarInfo as AvatarInfoRentableBot) } onClose={ () => setAvatarInfo(null) } />;
             case AvatarInfoPet.PET_INFO:
-                return <InfoStandWidgetPetView avatarInfo={ (avatarInfo as AvatarInfoPet) } onClose={ () => setAvatarInfo(null) } />
+                return <InfoStandWidgetPetView avatarInfo={ (avatarInfo as AvatarInfoPet) } onClose={ () => setAvatarInfo(null) } />;
         }
-    }
+    };
 
     return (
         <>
@@ -135,5 +135,5 @@ export const AvatarInfoWidgetView: FC<{}> = props =>
             { confirmingProduct && <AvatarInfoUseProductConfirmView item={ confirmingProduct } onClose={ () => updateConfirmingProduct(null) } /> }
             <AvatarInfoPetTrainingPanelView />
         </>
-    )
-}
+    );
+};

@@ -30,9 +30,9 @@ export const InventoryFurnitureItemView: FC<{ groupItem: GroupItem }> = props =>
                 attemptItemPlacement(groupItem);
                 return;
         }
-    }
+    };
 
     const count = groupItem.getUnlockedCount();
 
     return <LayoutGridItem className={ !count ? 'opacity-0-5 ' : '' } itemImage={ groupItem.iconUrl } itemCount={ groupItem.getUnlockedCount() } itemActive={ (groupItem === selectedItem) } itemUniqueNumber={ groupItem.stuffData.uniqueNumber } itemUnseen={ groupItem.hasUnseenItems } onMouseDown={ onMouseEvent } onMouseUp={ onMouseEvent } onMouseOut={ onMouseEvent } onDoubleClick={ onMouseEvent } { ...rest } />;
-}
+};

@@ -43,4 +43,4 @@ export const PromoArticleWidgetView: FC<{}> = props =>
                 </div> }
         </div>
     );
-}
+};

@@ -19,9 +19,9 @@ export const CatalogView: FC<{}> = props =>
             linkReceived: (url: string) =>
             {
                 const parts = url.split('/');
-        
+
                 if(parts.length < 2) return;
-        
+
                 switch(parts[1])
                 {
                     case 'show':
@@ -54,7 +54,7 @@ export const CatalogView: FC<{}> = props =>
                         {
                             setIsVisible(true);
                         }
-        
+
                         return;
                 }
             },
@@ -108,4 +108,4 @@ export const CatalogView: FC<{}> = props =>
             <MarketplacePostOfferView />
         </>
     );
-}
+};

@@ -19,14 +19,14 @@ export const UserProfileView: FC<{}> = props =>
         setUserProfile(null);
         setUserBadges([]);
         setUserRelationships(null);
-    }
+    };
 
     const onLeaveGroup = () =>
     {
         if(!userProfile || (userProfile.id !== GetSessionDataManager().userId)) return;
 
         GetUserProfile(userProfile.id);
-    }
+    };
 
     useMessageEvent<UserCurrentBadgesEvent>(UserCurrentBadgesEvent, event =>
     {
@@ -118,5 +118,5 @@ export const UserProfileView: FC<{}> = props =>
                 <GroupsContainerView fullWidth itsMe={ userProfile.id === GetSessionDataManager().userId } groups={ userProfile.groups } onLeaveGroup={ onLeaveGroup } />
             </NitroCardContentView>
         </NitroCardView>
-    )
-}
+    );
+};

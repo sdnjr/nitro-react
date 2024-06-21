@@ -32,14 +32,14 @@ export const AvatarInfoUseProductConfirmView: FC<AvatarInfoUseProductConfirmView
         if(!petData) return;
 
         GetRoomEngine().selectRoomObject(roomSession.roomId, petData.roomIndex, RoomObjectCategory.UNIT);
-    }
+    };
 
     const useProduct = () =>
     {
         roomSession.usePetProduct(item.requestRoomObjectId, petData.webID);
 
         onClose();
-    }
+    };
 
     const getPetImage = useMemo(() =>
     {
@@ -69,7 +69,7 @@ export const AvatarInfoUseProductConfirmView: FC<AvatarInfoUseProductConfirmView
                     }
                 }
 
-                return <LayoutPetImageView typeId={ petFigureData.typeId } paletteId={ paletteId } petColor={ petFigureData.color } customParts={ petFigureData.customParts } direction={ 2 } />
+                return <LayoutPetImageView typeId={ petFigureData.typeId } paletteId={ paletteId } petColor={ petFigureData.color } customParts={ petFigureData.customParts } direction={ 2 } />;
             }
             case FurniCategory.PET_CUSTOM_PART: {
                 if(customParts.length < 4) return null;
@@ -277,5 +277,5 @@ export const AvatarInfoUseProductConfirmView: FC<AvatarInfoUseProductConfirmView
                 </Flex>
             </NitroCardContentView>
         </NitroCardView>
-    )
-}
+    );
+};

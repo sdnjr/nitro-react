@@ -15,7 +15,7 @@ export const WiredTriggerBotReachedStuffView: FC<{}> = props =>
     {
         setBotName(trigger.stringData);
     }, [ trigger ]);
-    
+
     return (
         <WiredTriggerBaseView requiresFurni={ WiredFurniType.STUFF_SELECTION_OPTION_BY_ID_OR_BY_TYPE } hasSpecialInput={ true } save={ save }>
             <Column gap={ 1 }>
@@ -24,4 +24,4 @@ export const WiredTriggerBotReachedStuffView: FC<{}> = props =>
             </Column>
         </WiredTriggerBaseView>
     );
-}
+};

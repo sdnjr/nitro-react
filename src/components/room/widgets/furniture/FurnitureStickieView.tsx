@@ -15,7 +15,7 @@ const getStickieColorName = (color: string) =>
     if(index === -1) index = 0;
 
     return STICKIE_COLOR_NAMES[index];
-}
+};
 
 const getStickieTypeName = (type: string) =>
 {
@@ -24,7 +24,7 @@ const getStickieTypeName = (type: string) =>
     if(index === -1) index = 0;
 
     return STICKIE_TYPE_NAMES[index];
-}
+};
 
 export const FurnitureStickieView: FC<{}> = props =>
 {
@@ -50,7 +50,7 @@ export const FurnitureStickieView: FC<{}> = props =>
                                 <>
                                     { STICKIE_COLORS.map(color =>
                                     {
-                                        return <div key={ color } className="stickie-color ms-1" onClick={ event => updateColor(color) } style={ { backgroundColor: ColorUtils.makeColorHex(color) } } />
+                                        return <div key={ color } className="stickie-color ms-1" onClick={ event => updateColor(color) } style={ { backgroundColor: ColorUtils.makeColorHex(color) } } />;
                                     }) }
                                 </> }
                         </> }
@@ -63,4 +63,4 @@ export const FurnitureStickieView: FC<{}> = props =>
             </div>
         </DraggableWindow>
     );
-}
+};

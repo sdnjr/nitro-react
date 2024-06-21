@@ -25,7 +25,7 @@ export const MonsterPlantSeedConfirmView: FC<MonsterPlantSeedConfirmViewProps> =
         roomSession.useMultistateItem(objectId);
 
         onClose();
-    }
+    };
 
     useEffect(() =>
     {
@@ -57,7 +57,7 @@ export const MonsterPlantSeedConfirmView: FC<MonsterPlantSeedConfirmViewProps> =
     }, [ roomSession, objectId, onClose ]);
 
     if(mode === MODE_DEFAULT) return null;
-    
+
     return (
         <NitroCardView className="nitro-use-product-confirmation">
             <NitroCardHeaderView headerText={ LocalizeText('useproduct.widget.title.plant_seed', [ 'name' ], [ furniData.name ]) } onCloseClick={ onClose } />
@@ -82,4 +82,4 @@ export const MonsterPlantSeedConfirmView: FC<MonsterPlantSeedConfirmViewProps> =
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

@@ -138,19 +138,19 @@ export const CatalogLayoutPetView: FC<CatalogLayoutProps> = props =>
             for(const paletteData of petPalettes)
             {
                 if(paletteData.breed !== productData.type) continue;
-    
+
                 const palettes: SellablePetPaletteData[] = [];
-    
+
                 for(const palette of paletteData.palettes)
                 {
                     if(!palette.sellable) continue;
-    
+
                     palettes.push(palette);
                 }
-    
+
                 setSelectedPaletteIndex((palettes.length ? 0 : -1));
                 setSellablePalettes(palettes);
-    
+
                 return;
             }
         }
@@ -174,7 +174,7 @@ export const CatalogLayoutPetView: FC<CatalogLayoutProps> = props =>
     useEffect(() =>
     {
         if(!roomPreviewer) return;
-        
+
         roomPreviewer.reset(false);
 
         if((petIndex === -1) || !sellablePalettes.length || (selectedPaletteIndex === -1)) return;
@@ -240,4 +240,4 @@ export const CatalogLayoutPetView: FC<CatalogLayoutProps> = props =>
             </Column>
         </Grid>
     );
-}
+};

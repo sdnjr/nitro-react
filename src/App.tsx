@@ -85,11 +85,11 @@ export const App: FC<{}> = props =>
             {
                 NitroLogger.error(err);
             }
-        }
+        };
 
         prepare(window.innerWidth, window.innerHeight);
     }, []);
-    
+
     return (
         <Base fit overflow="hidden" className={ !(window.devicePixelRatio % 1) && 'image-rendering-pixelated' }>
             { !isReady &&
@@ -98,4 +98,4 @@ export const App: FC<{}> = props =>
             <Base id="draggable-windows-container" />
         </Base>
     );
-}
+};

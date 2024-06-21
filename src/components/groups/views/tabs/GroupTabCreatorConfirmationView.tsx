@@ -24,14 +24,14 @@ export const GroupTabCreatorConfirmationView: FC<GroupTabCreatorConfirmationView
         groupData.groupBadgeParts.forEach(part => (part.code && (badgeCode += part.code)));
 
         return badgeCode;
-    }
-    
+    };
+
     const getGroupColor = (colorIndex: number) =>
     {
         if(colorIndex === 0) return groupCustomize.groupColorsA.find(c => c.id === groupData.groupColors[colorIndex]).color;
 
         return groupCustomize.groupColorsB.find(c => c.id === groupData.groupColors[colorIndex]).color;
-    }
+    };
 
     if(!groupData) return null;
 

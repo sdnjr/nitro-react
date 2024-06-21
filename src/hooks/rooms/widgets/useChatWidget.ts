@@ -164,14 +164,14 @@ const useChatWidgetState = () =>
         const parser = event.getParser();
 
         if(!parser.roomEnter) return;
-        
+
         setChatSettings(parser.chat);
     });
 
     useMessageEvent<RoomChatSettingsEvent>(RoomChatSettingsEvent, event =>
     {
         const parser = event.getParser();
-        
+
         setChatSettings(parser.chat);
     });
 
@@ -182,10 +182,10 @@ const useChatWidgetState = () =>
         return () =>
         {
             isDisposed.current = true;
-        }
+        };
     }, []);
 
     return { chatMessages, setChatMessages, chatSettings, getScrollSpeed };
-}
+};
 
 export const useChatWidget = useChatWidgetState;

@@ -34,4 +34,4 @@ export const AchievementCategoryView: FC<AchievementCategoryViewProps> = props =
                 <AchievementDetailsView achievement={ selectedAchievement } /> }
         </Column>
     );
-}
+};

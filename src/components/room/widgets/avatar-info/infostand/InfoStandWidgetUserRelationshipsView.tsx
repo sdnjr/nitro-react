@@ -20,4 +20,4 @@ export const InfoStandWidgetUserRelationshipsView: FC<InfoStandWidgetUserRelatio
             <InfoStandWidgetUserRelationshipsRelationshipItemView type={ RelationshipStatusEnum.BOBBA } relationship={ relationships.relationshipStatusMap.getValue(RelationshipStatusEnum.BOBBA) } />
         </>
     );
-}
+};

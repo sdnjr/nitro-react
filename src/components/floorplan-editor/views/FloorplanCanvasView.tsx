@@ -31,7 +31,7 @@ export const FloorplanCanvasView: FC<ColumnProps> = props =>
         });
 
         setOccupiedTilesReceived(true);
-        
+
         elementRef.current.scrollTo((FloorplanEditor.instance.renderer.canvas.width / 3), 0);
     });
 
@@ -57,7 +57,7 @@ export const FloorplanCanvasView: FC<ColumnProps> = props =>
 
             return newValue;
         });
-        
+
         FloorplanEditor.instance.doorLocation = { x: parser.x, y: parser.y };
 
         setEntryTileReceived(true);
@@ -84,12 +84,12 @@ export const FloorplanCanvasView: FC<ColumnProps> = props =>
                 element.scrollBy({ left: 10 });
                 break;
         }
-    }
+    };
 
     const onPointerEvent = (event: PointerEvent) =>
     {
         event.preventDefault();
-        
+
         switch(event.type)
         {
             case 'pointerout':
@@ -103,7 +103,7 @@ export const FloorplanCanvasView: FC<ColumnProps> = props =>
                 FloorplanEditor.instance.onPointerMove(event);
                 break;
         }
-    }
+    };
 
     useEffect(() =>
     {
@@ -118,15 +118,15 @@ export const FloorplanCanvasView: FC<ColumnProps> = props =>
                     thicknessWall: originalFloorplanSettings.thicknessWall,
                     thicknessFloor: originalFloorplanSettings.thicknessFloor,
                     entryPointDir: prevValue.entryPointDir
-                }
+                };
             });
-        }
+        };
     }, [ originalFloorplanSettings.thicknessFloor, originalFloorplanSettings.thicknessWall, originalFloorplanSettings.wallHeight, setVisualizationSettings ]);
 
     useEffect(() =>
     {
         if(!entryTileReceived || !occupiedTilesReceived) return;
-        
+
         FloorplanEditor.instance.renderTiles();
     }, [ entryTileReceived, occupiedTilesReceived ]);
 
@@ -138,7 +138,7 @@ export const FloorplanCanvasView: FC<ColumnProps> = props =>
         const currentElement = elementRef.current;
 
         if(!currentElement) return;
-                
+
         currentElement.appendChild(FloorplanEditor.instance.renderer.canvas);
 
         currentElement.addEventListener('pointerup', onPointerEvent);
@@ -149,7 +149,7 @@ export const FloorplanCanvasView: FC<ColumnProps> = props =>
 
         currentElement.addEventListener('pointermove', onPointerEvent);
 
-        return () => 
+        return () =>
         {
             if(currentElement)
             {
@@ -161,7 +161,7 @@ export const FloorplanCanvasView: FC<ColumnProps> = props =>
 
                 currentElement.removeEventListener('pointermove', onPointerEvent);
             }
-        }
+        };
     }, []);
 
     const isSmallScreen = () => window.innerWidth < 768;
@@ -196,4 +196,4 @@ export const FloorplanCanvasView: FC<ColumnProps> = props =>
             { children }
         </Column>
     );
-}
+};

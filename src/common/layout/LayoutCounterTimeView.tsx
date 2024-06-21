@@ -40,4 +40,4 @@ export const LayoutCounterTimeView: FC<LayoutCounterTimeViewProps> = props =>
             { children }
         </Flex>
     );
-}
+};

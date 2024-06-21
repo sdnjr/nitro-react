@@ -11,7 +11,7 @@ import { CatalogLayoutProps } from './CatalogLayout.types';
 export const CatalogLayouGuildFrontpageView: FC<CatalogLayoutProps> = props =>
 {
     const { page = null } = props;
-    
+
     return (
         <Grid>
             <Column size={ 7 } overflow="hidden" className="bg-muted rounded p-2 text-black">
@@ -27,4 +27,4 @@ export const CatalogLayouGuildFrontpageView: FC<CatalogLayoutProps> = props =>
             </Column>
         </Grid>
     );
-}
+};

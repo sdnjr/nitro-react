@@ -17,14 +17,14 @@ export const NavigatorDoorStateView: FC<{}> = props =>
         if(doorData && (doorData.state === DoorStateType.STATE_WAITING)) GoToDesktop();
 
         setDoorData(null);
-    }
+    };
 
     const ring = () =>
     {
         if(!doorData || !doorData.roomInfo) return;
 
         CreateRoomSession(doorData.roomInfo.roomId);
-        
+
         setDoorData(prevValue =>
         {
             const newValue = { ...prevValue };
@@ -33,7 +33,7 @@ export const NavigatorDoorStateView: FC<{}> = props =>
 
             return newValue;
         });
-    }
+    };
 
     const tryEntering = () =>
     {
@@ -49,7 +49,7 @@ export const NavigatorDoorStateView: FC<{}> = props =>
 
             return newValue;
         });
-    }
+    };
 
     useEffect(() =>
     {
@@ -107,4 +107,4 @@ export const NavigatorDoorStateView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

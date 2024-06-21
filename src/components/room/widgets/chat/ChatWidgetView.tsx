@@ -23,10 +23,10 @@ export const ChatWidgetView: FC<{}> = props =>
             }
 
             return prevValue;
-        })
+        });
     }, [ setChatMessages ]);
 
-    const checkOverlappingChats = useCallback((chat: ChatBubbleMessage, moved: number, tempChats: ChatBubbleMessage[]) => 
+    const checkOverlappingChats = useCallback((chat: ChatBubbleMessage, moved: number, tempChats: ChatBubbleMessage[]) =>
     {
         for(let i = (chatMessages.indexOf(chat) - 1); i >= 0; i--)
         {
@@ -101,10 +101,10 @@ export const ChatWidgetView: FC<{}> = props =>
                 {
                     prevValue.forEach(chat => (chat.top -= (currentHeight - newHeight)));
                 }
-    
+
                 return prevValue;
             });
-        }
+        };
 
         window.addEventListener('resize', resize);
 
@@ -113,7 +113,7 @@ export const ChatWidgetView: FC<{}> = props =>
         return () =>
         {
             window.removeEventListener('resize', resize);
-        }
+        };
     }, [ setChatMessages ]);
 
     useEffect(() =>
@@ -127,10 +127,10 @@ export const ChatWidgetView: FC<{}> = props =>
                     if(chat.skipMovement)
                     {
                         chat.skipMovement = false;
-            
+
                         return;
                     }
-            
+
                     chat.top -= amount;
                 });
 
@@ -138,7 +138,7 @@ export const ChatWidgetView: FC<{}> = props =>
             });
 
             removeHiddenChats();
-        }
+        };
 
         const worker = new WorkerBuilder(IntervalWebWorker);
 
@@ -151,7 +151,7 @@ export const ChatWidgetView: FC<{}> = props =>
             worker.postMessage({ action: 'STOP' });
 
             worker.terminate();
-        }
+        };
     }, [ getScrollSpeed, removeHiddenChats, setChatMessages ]);
 
     return (
@@ -159,4 +159,4 @@ export const ChatWidgetView: FC<{}> = props =>
             { chatMessages.map(chat => <ChatWidgetMessageView key={ chat.id } chat={ chat } makeRoom={ makeRoom } bubbleWidth={ chatSettings.weight } />) }
         </div>
     );
-}
+};

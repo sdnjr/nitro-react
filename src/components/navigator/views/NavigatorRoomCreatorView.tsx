@@ -1,4 +1,4 @@
-/* eslint-disable no-template-curly-in-string */
+
 import { CreateFlatMessageComposer, HabboClubLevelEnum } from '@nitrots/nitro-renderer';
 import { FC, useEffect, useState } from 'react';
 import { GetClubMemberLevel, GetConfigurationValue, IRoomModel, LocalizeText, SendMessageComposer } from '../../../api';
@@ -79,7 +79,7 @@ export const NavigatorRoomCreatorView: FC<{}> = props =>
                         <select className="form-select form-select-sm" onChange={ event => setCategory(Number(event.target.value)) }>
                             { categories && (categories.length > 0) && categories.map(category =>
                             {
-                                return <option key={ category.id } value={ category.id }>{ LocalizeText(category.name) }</option>
+                                return <option key={ category.id } value={ category.id }>{ LocalizeText(category.name) }</option>;
                             }) }
                         </select>
                     </Column>
@@ -88,7 +88,7 @@ export const NavigatorRoomCreatorView: FC<{}> = props =>
                         <select className="form-select form-select-sm" onChange={ event => setVisitorsCount(Number(event.target.value)) }>
                             { maxVisitorsList && maxVisitorsList.map(value =>
                             {
-                                return <option key={ value } value={ value }>{ value }</option>
+                                return <option key={ value } value={ value }>{ value }</option>;
                             }) }
                         </select>
                     </Column>
@@ -119,4 +119,4 @@ export const NavigatorRoomCreatorView: FC<{}> = props =>
             <Button fullWidth variant={ (!name || (name.length < 3)) ? 'danger' : 'success' } onClick={ createRoom } disabled={ (!name || (name.length < 3)) }>{ LocalizeText('navigator.createroom.create') }</Button>
         </Column>
     );
-}
+};

@@ -29,7 +29,7 @@ export const NavigatorRoomInfoView: FC<NavigatorRoomInfoViewProps> = props =>
                 return GetSessionDataManager().securityLevel >= SecurityLevel.COMMUNITY;
             default: return false;
         }
-    }
+    };
 
     const processAction = (action: string, value?: string) =>
     {
@@ -85,7 +85,7 @@ export const NavigatorRoomInfoView: FC<NavigatorRoomInfoViewProps> = props =>
                 return;
         }
 
-    }
+    };
 
     useEffect(() =>
     {
@@ -131,7 +131,7 @@ export const NavigatorRoomInfoView: FC<NavigatorRoomInfoViewProps> = props =>
                                             <Flex alignItems="center" gap={ 1 }>
                                                 { navigatorData.enteredGuestRoom.tags.map(tag =>
                                                 {
-                                                    return <Text key={ tag } pointer className="bg-muted rounded p-1" onClick={ event => processAction('navigator_search_tag', tag) }>#{ tag }</Text>
+                                                    return <Text key={ tag } pointer className="bg-muted rounded p-1" onClick={ event => processAction('navigator_search_tag', tag) }>#{ tag }</Text>;
                                                 }) }
                                             </Flex> }
                                     </Column>

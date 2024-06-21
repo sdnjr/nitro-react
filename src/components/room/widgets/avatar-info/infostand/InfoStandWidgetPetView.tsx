@@ -71,7 +71,7 @@ export const InfoStandWidgetPetView: FC<InfoStandWidgetPetViewProps> = props =>
         }
 
         if(hideMenu) onClose();
-    }
+    };
 
     return (
         <Column gap={ 1 } alignItems="end">
@@ -206,4 +206,4 @@ export const InfoStandWidgetPetView: FC<InfoStandWidgetPetViewProps> = props =>
             </Flex>
         </Column>
     );
-}
+};

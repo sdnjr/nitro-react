@@ -19,7 +19,7 @@ export const HallOfFameWidgetView: FC<HallOfFameWidgetViewProps> = props =>
 
     useEffect(() =>
     {
-        const campaign: string = conf ? conf['campaign'] : '';  
+        const campaign: string = conf ? conf['campaign'] : '';
         SendMessageComposer(new GetCommunityGoalHallOfFameMessageComposer(campaign));
     }, [ conf ]);
 
@@ -34,4 +34,4 @@ export const HallOfFameWidgetView: FC<HallOfFameWidgetViewProps> = props =>
             ) }
         </div>
     );
-}
+};

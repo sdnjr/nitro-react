@@ -31,4 +31,4 @@ export const NitroCardView: FC<NitroCardViewProps> = props =>
             </DraggableWindow>
         </NitroCardContextProvider>
     );
-}
+};

@@ -24,4 +24,4 @@ export const HallOfFameItemView: FC<HallOfFameItemViewProps> = props =>
             <LayoutAvatarImageView figure={ data.figure } direction={ 2 } />
         </div>
     );
-}
+};

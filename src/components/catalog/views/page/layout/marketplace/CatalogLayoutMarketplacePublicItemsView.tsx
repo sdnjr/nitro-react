@@ -27,7 +27,7 @@ export const CatalogLayoutMarketplacePublicItemsView: FC<CatalogLayoutMarketplac
     const requestOffers = useCallback((options: IMarketplaceSearchOptions) =>
     {
         setLastSearch(options);
-        SendMessageComposer(new GetMarketplaceOffersMessageComposer(options.minPrice, options.maxPrice, options.query, options.type))
+        SendMessageComposer(new GetMarketplaceOffersMessageComposer(options.minPrice, options.maxPrice, options.query, options.type));
     }, []);
 
     const getSortTypes = useMemo( () =>
@@ -66,7 +66,7 @@ export const CatalogLayoutMarketplacePublicItemsView: FC<CatalogLayoutMarketplac
         const parser = event.getParser();
 
         if(!parser) return;
-        
+
         const latestOffers = new Map<number, MarketplaceOfferData>();
         parser.offers.forEach(entry =>
         {
@@ -119,7 +119,7 @@ export const CatalogLayoutMarketplacePublicItemsView: FC<CatalogLayoutMarketplac
                     return newVal;
                 });
 
-                showConfirm(LocalizeText('catalog.marketplace.confirm_higher_header') + 
+                showConfirm(LocalizeText('catalog.marketplace.confirm_higher_header') +
                 '\n' + LocalizeText('catalog.marketplace.confirm_price', [ 'price' ], [ parser.newPrice.toString() ]), () =>
                 {
                     SendMessageComposer(new BuyMarketplaceOfferMessageComposer(parser.offerId));
@@ -131,7 +131,7 @@ export const CatalogLayoutMarketplacePublicItemsView: FC<CatalogLayoutMarketplac
                 break;
         }
     });
-    
+
     return (
         <>
             <ButtonGroup>
@@ -151,11 +151,11 @@ export const CatalogLayoutMarketplacePublicItemsView: FC<CatalogLayoutMarketplac
                     { LocalizeText('catalog.marketplace.items_found', [ 'count' ], [ offers.size.toString() ]) }
                 </Text>
                 <Column className="nitro-catalog-layout-marketplace-grid" overflow="auto">
-                    { 
+                    {
                         Array.from(offers.values()).map( (entry, index) => <CatalogLayoutMarketplaceItemView key={ index } offerData={ entry } type={ PUBLIC_OFFER } onClick={ purchaseItem } />)
                     }
                 </Column>
             </Column>
         </>
     );
-}
+};

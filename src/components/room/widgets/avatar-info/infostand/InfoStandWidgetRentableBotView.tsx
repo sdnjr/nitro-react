@@ -24,7 +24,7 @@ export const InfoStandWidgetRentableBotView: FC<InfoStandWidgetRentableBotViewPr
     }, [ avatarInfo ]);
 
     const pickupBot = () => SendMessageComposer(new BotRemoveComposer(avatarInfo.webID));
-    
+
     if(!avatarInfo) return;
 
     return (
@@ -81,4 +81,4 @@ export const InfoStandWidgetRentableBotView: FC<InfoStandWidgetRentableBotViewPr
                 </Flex> }
         </Column>
     );
-}
+};

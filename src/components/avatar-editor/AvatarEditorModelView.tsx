@@ -78,4 +78,4 @@ export const AvatarEditorModelView: FC<{
             </Column>
         </Grid>
     );
-}
+};

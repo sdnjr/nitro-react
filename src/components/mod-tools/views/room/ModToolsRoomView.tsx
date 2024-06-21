@@ -44,7 +44,7 @@ export const ModToolsRoomView: FC<ModToolsRoomViewProps> = props =>
                 SendMessageComposer(new ModerateRoomMessageComposer(roomId, lockRoom ? 1 : 0, changeRoomName ? 1 : 0, kickUsers ? 1 : 0));
                 return;
         }
-    }
+    };
 
     useMessageEvent<ModeratorRoomInfoEvent>(ModeratorRoomInfoEvent, event =>
     {
@@ -63,7 +63,7 @@ export const ModToolsRoomView: FC<ModToolsRoomViewProps> = props =>
     useEffect(() =>
     {
         if(infoRequested) return;
-        
+
         SendMessageComposer(new GetModeratorRoomInfoMessageComposer(roomId));
         setInfoRequested(true);
     }, [ roomId, infoRequested, setInfoRequested ]);
@@ -114,4 +114,4 @@ export const ModToolsRoomView: FC<ModToolsRoomViewProps> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

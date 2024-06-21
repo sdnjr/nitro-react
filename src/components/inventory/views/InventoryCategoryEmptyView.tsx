@@ -10,7 +10,7 @@ export interface InventoryCategoryEmptyViewProps extends GridProps
 export const InventoryCategoryEmptyView: FC<InventoryCategoryEmptyViewProps> = props =>
 {
     const { title = '', desc = '', children = null, ...rest } = props;
-    
+
     return (
         <Grid { ...rest }>
             <Column center size={ 5 } overflow="hidden">
@@ -23,4 +23,4 @@ export const InventoryCategoryEmptyView: FC<InventoryCategoryEmptyViewProps> = p
             { children }
         </Grid>
     );
-}
+};

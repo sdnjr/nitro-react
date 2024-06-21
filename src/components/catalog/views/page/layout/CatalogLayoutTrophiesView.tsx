@@ -53,4 +53,4 @@ export const CatalogLayoutTrophiesView: FC<CatalogLayoutProps> = props =>
             </Column>
         </Grid>
     );
-}
+};

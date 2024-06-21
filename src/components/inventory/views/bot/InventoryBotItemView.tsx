@@ -32,7 +32,7 @@ export const InventoryBotItemView: FC<PropsWithChildren<{ botItem: IBotItem }>> 
                 attemptBotPlacement(botItem);
                 return;
         }
-    }
+    };
 
     return (
         <LayoutGridItem itemActive={ (selectedBot === botItem) } itemUnseen={ unseen } onMouseDown={ onMouseEvent } onMouseUp={ onMouseEvent } onMouseOut={ onMouseEvent } onDoubleClick={ onMouseEvent } { ...rest }>
@@ -40,4 +40,4 @@ export const InventoryBotItemView: FC<PropsWithChildren<{ botItem: IBotItem }>> 
             { children }
         </LayoutGridItem>
     );
-}
+};

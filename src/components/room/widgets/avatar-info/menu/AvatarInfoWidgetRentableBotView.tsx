@@ -121,7 +121,7 @@ export const AvatarInfoWidgetRentableBotView: FC<AvatarInfoWidgetRentableBotView
         }
 
         if(hideMenu) onClose();
-    }
+    };
 
     useEffect(() =>
     {
@@ -194,4 +194,4 @@ export const AvatarInfoWidgetRentableBotView: FC<AvatarInfoWidgetRentableBotView
                 </Column> }
         </ContextMenuView>
     );
-}
+};

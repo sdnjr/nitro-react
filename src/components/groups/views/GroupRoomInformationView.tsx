@@ -67,7 +67,7 @@ export const GroupRoomInformationView: FC<{}> = props =>
         {
             SendMessageComposer(new GroupRemoveMemberComposer(groupInformation.id, GetSessionDataManager().userId));
         }, null);
-    }
+    };
 
     const isRealOwner = (groupInformation && (groupInformation.ownerName === GetSessionDataManager().userName));
 
@@ -84,7 +84,7 @@ export const GroupRoomInformationView: FC<{}> = props =>
         if(groupInformation.membershipType === GroupMembershipType.REQUEST_PENDING) return 'group.membershippending';
 
         if((groupInformation.membershipType === GroupMembershipType.NOT_MEMBER) && groupInformation.type === GroupType.EXCLUSIVE) return 'group.requestmembership';
-    }
+    };
 
     const handleButtonClick = () =>
     {
@@ -100,7 +100,7 @@ export const GroupRoomInformationView: FC<{}> = props =>
         }
 
         TryJoinGroup(groupInformation.id);
-    }
+    };
 
     if(!groupInformation) return null;
 
@@ -120,7 +120,7 @@ export const GroupRoomInformationView: FC<{}> = props =>
                             </Base>
                             <Text variant="white">{ groupInformation.title }</Text>
                         </Flex>
-                        { (groupInformation.type !== GroupType.PRIVATE || isRealOwner) && 
+                        { (groupInformation.type !== GroupType.PRIVATE || isRealOwner) &&
                             <Button fullWidth variant="success" disabled={ (groupInformation.membershipType === GroupMembershipType.REQUEST_PENDING) } onClick={ handleButtonClick }>
                                 { LocalizeText(getButtonText()) }
                             </Button>

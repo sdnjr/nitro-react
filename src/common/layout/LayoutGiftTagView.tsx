@@ -17,7 +17,7 @@ interface LayoutGiftTagViewProps
 export const LayoutGiftTagView: FC<LayoutGiftTagViewProps> = props =>
 {
     const { figure = null, userName = null, message = null, editable = false, onChange = null } = props;
-    
+
     return (
         <Flex overflow="hidden" className="nitro-gift-card text-black">
             <div className="d-flex align-items-center justify-content-center gift-face flex-shrink-0">

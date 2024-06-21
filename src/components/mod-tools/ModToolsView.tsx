@@ -57,9 +57,9 @@ export const ModToolsView: FC<{}> = props =>
             linkReceived: (url: string) =>
             {
                 const parts = url.split('/');
-        
+
                 if(parts.length < 2) return;
-        
+
                 switch(parts[1])
                 {
                     case 'show':
@@ -75,7 +75,7 @@ export const ModToolsView: FC<{}> = props =>
                         openRoomInfo(Number(parts[2]));
                         return;
                     case 'close-room-info':
-                        closeRoomInfo(Number(parts[2]));           
+                        closeRoomInfo(Number(parts[2]));
                         return;
                     case 'toggle-room-info':
                         toggleRoomInfo(Number(parts[2]));
@@ -84,7 +84,7 @@ export const ModToolsView: FC<{}> = props =>
                         openRoomChatlog(Number(parts[2]));
                         return;
                     case 'close-room-chatlog':
-                        closeRoomChatlog(Number(parts[2]));             
+                        closeRoomChatlog(Number(parts[2]));
                         return;
                     case 'toggle-room-chatlog':
                         toggleRoomChatlog(Number(parts[2]));
@@ -93,16 +93,16 @@ export const ModToolsView: FC<{}> = props =>
                         openUserInfo(Number(parts[2]));
                         return;
                     case 'close-user-info':
-                        closeUserInfo(Number(parts[2]));             
+                        closeUserInfo(Number(parts[2]));
                         return;
                     case 'toggle-user-info':
                         toggleUserInfo(Number(parts[2]));
                         return;
                     case 'open-user-chatlog':
-                        openUserChatlog(Number(parts[2]));   
+                        openUserChatlog(Number(parts[2]));
                         return;
                     case 'close-user-chatlog':
-                        closeUserChatlog(Number(parts[2]));              
+                        closeUserChatlog(Number(parts[2]));
                         return;
                     case 'toggle-user-chatlog':
                         toggleUserChatlog(Number(parts[2]));
@@ -144,4 +144,4 @@ export const ModToolsView: FC<{}> = props =>
             { isTicketsVisible && <ModToolsTicketsView onCloseClick={ () => setIsTicketsVisible(false) } /> }
         </>
     );
-}
+};

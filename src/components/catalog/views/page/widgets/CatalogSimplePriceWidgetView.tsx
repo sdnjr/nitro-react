@@ -18,4 +18,4 @@ export const CatalogSimplePriceWidgetView: FC<CatalogSimplePriceWidgetViewProps>
             <CatalogPriceDisplayWidgetView separator={ true } offer={ currentOffer } />
         </Flex>
     );
-}
+};

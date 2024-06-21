@@ -27,7 +27,7 @@ const useRoomState = () =>
         {
             roomBackground.tint = newColor;
         }
-    }
+    };
 
     const updateRoomFilter = (color: number) =>
     {
@@ -40,7 +40,7 @@ const useRoomState = () =>
         roomFilter.red = (r / 255);
         roomFilter.green = (g / 255);
         roomFilter.blue = (b / 255);
-    }
+    };
 
     useUiEvent<RoomWidgetUpdateBackgroundColorPreviewEvent>(RoomWidgetUpdateBackgroundColorPreviewEvent.PREVIEW, event => updateRoomBackgroundColor(event.hue, event.saturation, event.lightness));
 
@@ -263,7 +263,7 @@ const useRoomState = () =>
             background.height = height;
 
             InitializeRoomInstanceRenderingCanvas(width, height, 1);
-        }
+        };
 
         window.addEventListener('resize', resize);
 
@@ -274,10 +274,10 @@ const useRoomState = () =>
             setOriginalRoomBackgroundColor(0);
 
             window.removeEventListener('resize', resize);
-        }
+        };
     }, [ roomSession ]);
 
     return { roomSession };
-}
+};
 
 export const useRoom = () => useBetween(useRoomState);

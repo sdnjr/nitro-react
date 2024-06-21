@@ -62,7 +62,7 @@ export const InfiniteGrid: FC<InfiniteGridProps> = props =>
                                 minHeight: virtualRow.index === 0 ? estimateSize : virtualRow.size,
                                 gridTemplateColumns: `repeat(${ columnCount }, 1fr)`
                             } }>
-                            { Array.from(Array(columnCount)).map((e,i) => 
+                            { Array.from(Array(columnCount)).map((e,i) =>
                             {
                                 const item = rows[i + (virtualRow.index * columnCount)];
 
@@ -81,4 +81,4 @@ export const InfiniteGrid: FC<InfiniteGridProps> = props =>
             </div>
         </Base>
     );
-}
+};

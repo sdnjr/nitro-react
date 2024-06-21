@@ -48,4 +48,4 @@ export const ChooserWidgetView: FC<ChooserWidgetViewProps> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

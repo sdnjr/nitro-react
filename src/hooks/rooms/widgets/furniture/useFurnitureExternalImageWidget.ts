@@ -19,7 +19,7 @@ const useFurnitureExternalImageWidgetState = () =>
         setCategory(-1);
         setCurrentPhotoIndex(-1);
         setCurrentPhotos([]);
-    }
+    };
 
     useNitroEvent<RoomEngineTriggerWidgetEvent>(RoomEngineTriggerWidgetEvent.REQUEST_EXTERNAL_IMAGE, event =>
     {
@@ -52,7 +52,7 @@ const useFurnitureExternalImageWidgetState = () =>
 
             if(roomObjectPhotoData)
             {
-                index = datas.findIndex(data => (data.u === roomObjectPhotoData.u))
+                index = datas.findIndex(data => (data.u === roomObjectPhotoData.u));
             }
 
             if(index < 0) index = 0;
@@ -69,6 +69,6 @@ const useFurnitureExternalImageWidgetState = () =>
     });
 
     return { objectId, currentPhotoIndex, currentPhotos, onClose };
-}
+};
 
 export const useFurnitureExternalImageWidget = useFurnitureExternalImageWidgetState;

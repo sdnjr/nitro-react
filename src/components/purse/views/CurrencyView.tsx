@@ -24,7 +24,7 @@ export const CurrencyView: FC<CurrencyViewProps> = props =>
     }, [ amount, short, type ]);
 
     if(!short) return element;
-    
+
     return (
         <OverlayTrigger
             placement="left"
@@ -36,4 +36,4 @@ export const CurrencyView: FC<CurrencyViewProps> = props =>
             { element }
         </OverlayTrigger>
     );
-}
+};

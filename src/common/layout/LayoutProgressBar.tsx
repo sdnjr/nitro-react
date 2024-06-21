@@ -31,4 +31,4 @@ export const LayoutProgressBar: FC<LayoutProgressBarProps> = props =>
             { children }
         </Column>
     );
-}
+};

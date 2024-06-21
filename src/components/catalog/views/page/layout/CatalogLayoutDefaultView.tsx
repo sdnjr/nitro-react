@@ -28,7 +28,7 @@ export const CatalogLayoutDefaultView: FC<CatalogLayoutProps> = props =>
                 <Column center={ !currentOffer } size={ 5 } overflow="hidden">
                     { !currentOffer &&
                         <>
-                            { !!page.localization.getImage(1) && 
+                            { !!page.localization.getImage(1) &&
                                 <LayoutImage imageUrl={ page.localization.getImage(1) } /> }
                             <Text center dangerouslySetInnerHTML={ { __html: page.localization.getText(0) } } />
                         </> }
@@ -58,4 +58,4 @@ export const CatalogLayoutDefaultView: FC<CatalogLayoutProps> = props =>
             </Grid>
         </>
     );
-}
+};

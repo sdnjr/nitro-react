@@ -49,4 +49,4 @@ export const LayoutNotificationBubbleView: FC<LayoutNotificationBubbleViewProps>
             <Flex overflow={ overflow } classNames={ getClassNames } onClick={ onClose } { ...rest } />
         </TransitionAnimation>
     );
-}
+};

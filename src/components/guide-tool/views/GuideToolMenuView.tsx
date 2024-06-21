@@ -32,7 +32,7 @@ export const GuideToolMenuView: FC<GuideToolMenuViewProps> = props =>
         guardiansOnDuty = 0,
         processAction = null
     } = props;
-    
+
     return (
         <Column>
             <Flex alignItems="center" gap={ 2 } className="bg-muted p-2 rounded">
@@ -73,4 +73,4 @@ export const GuideToolMenuView: FC<GuideToolMenuViewProps> = props =>
             </Flex>
         </Column>
     );
-}
+};

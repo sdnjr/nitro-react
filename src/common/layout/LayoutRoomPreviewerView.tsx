@@ -19,7 +19,7 @@ export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =
 
         if(event.shiftKey) roomPreviewer.changeRoomObjectDirection();
         else roomPreviewer.changeRoomObjectState();
-    }
+    };
 
     useEffect(() =>
     {
@@ -31,7 +31,7 @@ export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =
         const update = async (ticker: NitroTicker) =>
         {
             if(!roomPreviewer || !elementRef.current) return;
-        
+
             roomPreviewer.updatePreviewRoomView();
 
             const renderingCanvas = roomPreviewer.getRenderingCanvas();
@@ -46,11 +46,11 @@ export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =
 
             let canvas = GetRenderer().texture.generateCanvas(texture);
             const base64 = canvas.toDataURL('image/png');
-    
+
             canvas = null;
 
             elementRef.current.style.backgroundImage = `url(${ base64 })`;
-        }
+        };
 
         GetTicker().add(update);
 
@@ -66,7 +66,7 @@ export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =
         });
 
         roomPreviewer.getRoomCanvas(width, height);
-        
+
         resizeObserver.observe(elementRef.current);
 
         return () =>
@@ -76,7 +76,7 @@ export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =
             resizeObserver.disconnect();
 
             texture.destroy(true);
-        }
+        };
     }, [ roomPreviewer, elementRef, height ]);
 
     return (
@@ -85,4 +85,4 @@ export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =
             { children }
         </div>
     );
-}
+};

@@ -41,4 +41,4 @@ export const ModToolsUserChatlogView: FC<ModToolsUserChatlogViewProps> = props =
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

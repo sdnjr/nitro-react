@@ -25,4 +25,4 @@ export const LayoutItemCountView: FC<LayoutItemCountViewProps> = props =>
             { children }
         </Base>
     );
-}
+};

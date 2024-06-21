@@ -3,9 +3,9 @@ import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import ReactSlider from 'react-slider';
 import { LocalizeText } from '../../../api';
 import { Column, Flex, LayoutGridItem, Text } from '../../../common';
+import { useFloorplanEditorContext } from '../FloorplanEditorContext';
 import { COLORMAP, FloorAction } from '../common/Constants';
 import { FloorplanEditor } from '../common/FloorplanEditor';
-import { useFloorplanEditorContext } from '../FloorplanEditorContext';
 
 const MIN_WALL_HEIGHT: number = 0;
 const MAX_WALL_HEIGHT: number = 16;
@@ -18,13 +18,13 @@ export const FloorplanOptionsView: FC<{}> = props =>
     const { visualizationSettings = null, setVisualizationSettings = null } = useFloorplanEditorContext();
     const [ floorAction, setFloorAction ] = useState(FloorAction.SET);
     const [ floorHeight, setFloorHeight ] = useState(0);
-    
+
     const selectAction = (action: number) =>
     {
         setFloorAction(action);
 
         FloorplanEditor.instance.actionSettings.currentAction = action;
-    }
+    };
 
     const changeDoorDirection = () =>
     {
@@ -43,7 +43,7 @@ export const FloorplanOptionsView: FC<{}> = props =>
 
             return newValue;
         });
-    }
+    };
 
     const onFloorHeightChange = (value: number) =>
     {
@@ -54,7 +54,7 @@ export const FloorplanOptionsView: FC<{}> = props =>
         setFloorHeight(value);
 
         FloorplanEditor.instance.actionSettings.currentHeight = value.toString(36);
-    }
+    };
 
     const onFloorThicknessChange = (value: number) =>
     {
@@ -66,7 +66,7 @@ export const FloorplanOptionsView: FC<{}> = props =>
 
             return newValue;
         });
-    }
+    };
 
     const onWallThicknessChange = (value: number) =>
     {
@@ -75,10 +75,10 @@ export const FloorplanOptionsView: FC<{}> = props =>
             const newValue = { ...prevValue };
 
             newValue.thicknessWall = value;
-    
+
             return newValue;
         });
-    }
+    };
 
     const onWallHeightChange = (value: number) =>
     {
@@ -94,7 +94,7 @@ export const FloorplanOptionsView: FC<{}> = props =>
 
             return newValue;
         });
-    }
+    };
 
     const increaseWallHeight = () =>
     {
@@ -103,7 +103,7 @@ export const FloorplanOptionsView: FC<{}> = props =>
         if(height > MAX_WALL_HEIGHT) height = MAX_WALL_HEIGHT;
 
         onWallHeightChange(height);
-    }
+    };
 
     const decreaseWallHeight = () =>
     {
@@ -112,7 +112,7 @@ export const FloorplanOptionsView: FC<{}> = props =>
         if(height <= 0) height = MIN_WALL_HEIGHT;
 
         onWallHeightChange(height);
-    }
+    };
 
     return (
         <Column>
@@ -164,7 +164,7 @@ export const FloorplanOptionsView: FC<{}> = props =>
                         step={ 1 }
                         value={ floorHeight }
                         onChange={ event => onFloorHeightChange(event) }
-                        renderThumb={ ({ style, ...rest }, state) => <div style={ { backgroundColor: `#${ COLORMAP[state.valueNow.toString(33)] }`, ...style } } { ...rest }>{ state.valueNow }</div> } />
+                        renderThumb={ ({ key, style, ...rest }, state) => <div key={ key } style={ { backgroundColor: `#${ COLORMAP[state.valueNow.toString(33)] }`, ...style } } { ...rest }>{ state.valueNow }</div> } />
                 </Column>
                 <Column size={ 6 }>
                     <Text bold>{ LocalizeText('floor.plan.editor.room.options') }</Text>
@@ -186,4 +186,4 @@ export const FloorplanOptionsView: FC<{}> = props =>
             </Flex>
         </Column>
     );
-}
+};

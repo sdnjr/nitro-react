@@ -50,7 +50,7 @@ export const RelationshipsContainerView: FC<RelationshipsContainerViewProps> = p
                 </Column>
             </Flex>
         );
-    }
+    };
 
     return (
         <>
@@ -59,4 +59,4 @@ export const RelationshipsContainerView: FC<RelationshipsContainerViewProps> = p
             <RelationshipComponent type={ RelationshipStatusEnum.BOBBA } />
         </>
     );
-}
+};

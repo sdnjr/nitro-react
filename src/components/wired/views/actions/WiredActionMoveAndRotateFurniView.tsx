@@ -61,7 +61,7 @@ export const WiredActionMoveAndRotateFurniView: FC<{}> = props =>
                                     <i className={ `icon icon-${ option.icon }` } />
                                 </Text>
                             </Flex>
-                        )
+                        );
                     }) }
                 </Flex>
             </Column>
@@ -74,9 +74,9 @@ export const WiredActionMoveAndRotateFurniView: FC<{}> = props =>
                             <input className="form-check-input" type="radio" name="rotation" id={ `rotation${ option }` } checked={ (rotation === option) } onChange={ event => setRotation(option) } />
                             <Text>{ LocalizeText(`wiredfurni.params.turn.${ option }`) }</Text>
                         </Flex>
-                    )
+                    );
                 }) }
             </Column>
         </WiredActionBaseView>
     );
-}
+};

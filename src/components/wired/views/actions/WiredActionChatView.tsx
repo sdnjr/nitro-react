@@ -24,4 +24,4 @@ export const WiredActionChatView: FC<{}> = props =>
             </Column>
         </WiredActionBaseView>
     );
-}
+};

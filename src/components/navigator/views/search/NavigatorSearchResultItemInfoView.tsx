@@ -36,7 +36,7 @@ export const NavigatorSearchResultItemInfoView: FC<NavigatorSearchResultItemInfo
         }
 
         return bg;
-    }
+    };
 
     return (
         <>
@@ -78,4 +78,4 @@ export const NavigatorSearchResultItemInfoView: FC<NavigatorSearchResultItemInfo
             </Overlay>
         </>
     );
-}
+};

@@ -20,12 +20,12 @@ export const UserContainerView: FC<UserContainerViewProps> = props =>
         setRequestSent(true);
 
         SendMessageComposer(new RequestFriendComposer(userProfile.username));
-    }
+    };
 
     useEffect(() =>
     {
         setRequestSent(userProfile.requestSent);
-    }, [ userProfile ])
+    }, [ userProfile ]);
 
     return (
         <Flex gap={ 2 }>
@@ -70,5 +70,5 @@ export const UserContainerView: FC<UserContainerViewProps> = props =>
                 </Flex>
             </Column>
         </Flex>
-    )
-}
+    );
+};

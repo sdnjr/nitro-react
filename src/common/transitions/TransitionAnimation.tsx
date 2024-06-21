@@ -2,16 +2,13 @@ import { FC, ReactNode, useEffect, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import { getTransitionAnimationStyle } from './TransitionAnimationStyles';
 
-interface TransitionAnimationProps
-{
+export const TransitionAnimation: FC<{
     type: string;
     inProp: boolean;
     timeout?: number;
     className?: string;
     children?: ReactNode;
-}
-
-export const TransitionAnimation: FC<TransitionAnimationProps> = props =>
+}> = props =>
 {
     const { type = null, inProp = false, timeout = 300, className = null, children = null } = props;
 
@@ -37,7 +34,7 @@ export const TransitionAnimation: FC<TransitionAnimationProps> = props =>
         return () =>
         {
             if(timeoutData) clearTimeout(timeoutData);
-        }
+        };
     }, [ inProp, timeout ]);
 
     return (
@@ -49,4 +46,4 @@ export const TransitionAnimation: FC<TransitionAnimationProps> = props =>
             ) }
         </Transition>
     );
-}
+};

@@ -15,7 +15,7 @@ export const WiredActionMuteUserView: FC<{}> = props =>
     {
         setIntParams([ time ]);
         setStringParam(message);
-    }
+    };
 
     useEffect(() =>
     {
@@ -40,4 +40,4 @@ export const WiredActionMuteUserView: FC<{}> = props =>
             </Column>
         </WiredActionBaseView>
     );
-}
+};

@@ -27,7 +27,7 @@ export const NavigatorSearchView: FC<NavigatorSearchViewProps> = props =>
         const searchQuery = ((searchFilter.query ? (searchFilter.query + ':') : '') + searchValue);
 
         sendSearch((searchQuery || ''), topLevelContext.code);
-    }
+    };
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) =>
     {
@@ -69,7 +69,7 @@ export const NavigatorSearchView: FC<NavigatorSearchViewProps> = props =>
                 <select className="form-select form-select-sm" value={ searchFilterIndex } onChange={ event => setSearchFilterIndex(parseInt(event.target.value)) }>
                     { SearchFilterOptions.map((filter, index) =>
                     {
-                        return <option key={ index } value={ index }>{ LocalizeText('navigator.filter.' + filter.name) }</option>
+                        return <option key={ index } value={ index }>{ LocalizeText('navigator.filter.' + filter.name) }</option>;
                     }) }
                 </select>
             </Flex>
@@ -81,4 +81,4 @@ export const NavigatorSearchView: FC<NavigatorSearchViewProps> = props =>
             </Flex>
         </Flex>
     );
-}
+};

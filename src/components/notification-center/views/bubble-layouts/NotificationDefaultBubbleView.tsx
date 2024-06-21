@@ -10,7 +10,7 @@ export interface NotificationDefaultBubbleViewProps extends LayoutNotificationBu
 export const NotificationDefaultBubbleView: FC<NotificationDefaultBubbleViewProps> = props =>
 {
     const { item = null, onClose = null, ...rest } = props;
-    
+
     const htmlText = item.message.replace(/\r\n|\r|\n/g, '<br />');
 
     return (
@@ -22,4 +22,4 @@ export const NotificationDefaultBubbleView: FC<NotificationDefaultBubbleViewProp
             <Text wrap variant="white" dangerouslySetInnerHTML={ { __html: htmlText } } />
         </LayoutNotificationBubbleView>
     );
-}
+};

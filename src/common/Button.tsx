@@ -32,4 +32,4 @@ export const Button: FC<ButtonProps> = props =>
     }, [ variant, size, active, disabled, classNames ]);
 
     return <Flex center classNames={ getClassNames } { ...rest } />;
-}
+};

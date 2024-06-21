@@ -62,7 +62,7 @@ export const LayoutAvatarImageView: FC<LayoutAvatarImageViewProps> = props =>
             const resetFigure = (_figure: string) =>
             {
                 if(isDisposed.current) return;
-                
+
                 const avatarImage = GetAvatarRenderManager().createAvatarImage(_figure, AvatarScaleType.LARGE, gender, { resetFigure: (figure: string) => resetFigure(figure), dispose: null, disposed: false });
 
                 let setType = AvatarSetType.FULL;
@@ -80,8 +80,8 @@ export const LayoutAvatarImageView: FC<LayoutAvatarImageViewProps> = props =>
                     setAvatarUrl(imageUrl);
                 }
 
-                avatarImage.dispose(true);
-            }
+                avatarImage.dispose();
+            };
 
             resetFigure(figure);
         }
@@ -90,14 +90,14 @@ export const LayoutAvatarImageView: FC<LayoutAvatarImageViewProps> = props =>
     useEffect(() =>
     {
         isDisposed.current = false;
-        
+
         setIsReady(true);
 
         return () =>
         {
             isDisposed.current = true;
-        }
+        };
     }, []);
-        
+
     return <Base classNames={ getClassNames } style={ getStyle } { ...rest } />;
-}
+};

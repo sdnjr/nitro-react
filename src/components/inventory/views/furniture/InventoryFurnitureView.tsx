@@ -23,7 +23,7 @@ const attemptPlaceMarketplaceOffer = (groupItem: GroupItem) =>
     if(!item.sellable) return false;
 
     DispatchUiEvent(new CatalogPostMarketplaceOfferEvent(item));
-}
+};
 
 export const InventoryFurnitureView: FC<InventoryFurnitureViewProps> = props =>
 {
@@ -143,4 +143,4 @@ export const InventoryFurnitureView: FC<InventoryFurnitureViewProps> = props =>
             </Column>
         </Grid>
     );
-}
+};

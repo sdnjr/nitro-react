@@ -13,7 +13,7 @@ export const CatalogLayouGuildCustomFurniView: FC<CatalogLayoutProps> = props =>
 {
     const { page = null } = props;
     const { currentOffer = null } = useCatalog();
-    
+
     return (
         <Grid>
             <Column size={ 7 } overflow="hidden">
@@ -45,4 +45,4 @@ export const CatalogLayouGuildCustomFurniView: FC<CatalogLayoutProps> = props =>
             </Column>
         </Grid>
     );
-}
+};

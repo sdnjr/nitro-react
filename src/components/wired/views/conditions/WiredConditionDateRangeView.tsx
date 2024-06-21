@@ -25,7 +25,7 @@ export const WiredConditionDateRangeView: FC<{}> = props =>
         }
 
         setIntParams([ startDateMili, endDateMili ]);
-    }
+    };
 
     useEffect(() =>
     {
@@ -42,7 +42,7 @@ export const WiredConditionDateRangeView: FC<{}> = props =>
             setEndDate(WiredDateToString(endDate));
         }
     }, [ trigger ]);
-    
+
     return (
         <WiredConditionBaseView requiresFurni={ WiredFurniType.STUFF_SELECTION_OPTION_NONE } hasSpecialInput={ true } save={ save }>
             <Column gap={ 1 }>
@@ -55,4 +55,4 @@ export const WiredConditionDateRangeView: FC<{}> = props =>
             </Column>
         </WiredConditionBaseView>
     );
-}
+};

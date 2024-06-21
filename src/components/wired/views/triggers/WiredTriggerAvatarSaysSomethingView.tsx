@@ -15,14 +15,14 @@ export const WiredTriggerAvatarSaysSomethingView: FC<{}> = props =>
     {
         setStringParam(message);
         setIntParams([ triggererAvatar ]);
-    }
+    };
 
     useEffect(() =>
     {
         setMessage(trigger.stringData);
         setTriggererAvatar((trigger.intData.length > 0) ? trigger.intData[0] : 0);
     }, [ trigger ]);
-    
+
     return (
         <WiredTriggerBaseView requiresFurni={ WiredFurniType.STUFF_SELECTION_OPTION_NONE } hasSpecialInput={ true } save={ save }>
             <Column gap={ 1 }>
@@ -42,4 +42,4 @@ export const WiredTriggerAvatarSaysSomethingView: FC<{}> = props =>
             </Column>
         </WiredTriggerBaseView>
     );
-}
+};

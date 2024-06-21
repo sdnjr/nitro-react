@@ -26,14 +26,14 @@ export const CampaignView: FC<{}> = props =>
         {
             SendMessageComposer(new OpenCampaignCalendarDoorComposer(calendarData.campaignName, id));
         }
-    }
+    };
 
     useMessageEvent<CampaignCalendarDataMessageEvent>(CampaignCalendarDataMessageEvent, event =>
     {
         const parser = event.getParser();
 
         if(!parser) return;
-        
+
         setCalendarData(parser.calendarData);
     });
 
@@ -47,19 +47,19 @@ export const CampaignView: FC<{}> = props =>
 
         if(parser.doorOpened)
         {
-            setCalendarData(prev => 
+            setCalendarData(prev =>
             {
                 const copy = prev.clone();
                 copy.openedDays.push(lastOpenAttempt);
-                    
+
                 return copy;
             });
-    
+
             setReceivedProducts(prev =>
             {
                 const copy = new Map(prev);
                 copy.set(lastAttempt, new CalendarItem(parser.productName, parser.customImage,parser.furnitureClassName));
-                    
+
                 return copy;
             });
         }
@@ -73,9 +73,9 @@ export const CampaignView: FC<{}> = props =>
             linkReceived: (url: string) =>
             {
                 const value = url.split('/');
-        
+
                 if(value.length < 2) return;
-        
+
                 switch(value[1])
                 {
                     case 'calendar':
@@ -93,9 +93,9 @@ export const CampaignView: FC<{}> = props =>
 
     return (
         <>
-            { (calendarData && isCalendarOpen) && 
+            { (calendarData && isCalendarOpen) &&
                 <CalendarView onClose={ () => setCalendarOpen(false) } campaignName={ calendarData.campaignName } currentDay={ calendarData.currentDay } numDays={ calendarData.campaignDays } openedDays={ calendarData.openedDays } missedDays={ calendarData.missedDays } openPackage={ openPackage } receivedProducts={ receivedProducts } />
             }
         </>
-    )
-}
+    );
+};

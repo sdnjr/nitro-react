@@ -20,7 +20,7 @@ export const AvatarEditorFigureSetItemView: FC<{
     useEffect(() =>
     {
         if(!setType || !setType.length || !partItem) return;
-        
+
         const loadImage = async () =>
         {
             const isHC = !GetConfigurationValue<boolean>('hc.disabled', false) && ((partItem.partSet?.clubLevel ?? 0) > 0);
@@ -37,7 +37,7 @@ export const AvatarEditorFigureSetItemView: FC<{
             }
 
             if(url && url.length) setAssetUrl(url);
-        }
+        };
 
         loadImage();
     }, [ setType, partItem, selectedColorParts, getFigureStringWithFace ]);
@@ -51,4 +51,4 @@ export const AvatarEditorFigureSetItemView: FC<{
             { !partItem.isClear && partItem.partSet.isSellable && <AvatarEditorIcon icon="sellable" position="absolute" className="end-1 bottom-1" /> }
         </LayoutGridItem>
     );
-}
+};

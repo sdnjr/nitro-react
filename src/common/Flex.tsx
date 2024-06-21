@@ -47,4 +47,4 @@ export const Flex: FC<FlexProps> = props =>
     }, [ column, reverse, gap, center, alignSelf, alignItems, justifyContent, classNames ]);
 
     return <Base display={ display } classNames={ getClassNames } { ...rest } />;
-}
+};

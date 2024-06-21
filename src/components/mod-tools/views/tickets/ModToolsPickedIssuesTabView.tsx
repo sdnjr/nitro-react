@@ -10,7 +10,7 @@ interface ModToolsPickedIssuesTabViewProps
 export const ModToolsPickedIssuesTabView: FC<ModToolsPickedIssuesTabViewProps> = props =>
 {
     const { pickedIssues = null } = props;
-    
+
     return (
         <Column gap={ 0 } overflow="hidden">
             <Column gap={ 2 }>
@@ -36,4 +36,4 @@ export const ModToolsPickedIssuesTabView: FC<ModToolsPickedIssuesTabViewProps> =
             </Column>
         </Column>
     );
-}
+};

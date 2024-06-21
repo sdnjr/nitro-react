@@ -34,4 +34,4 @@ export const LayoutRoomThumbnailView: FC<LayoutRoomThumbnailViewProps> = props =
             { children }
         </Base>
     );
-}
+};

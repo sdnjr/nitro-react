@@ -31,7 +31,7 @@ export const AvatarInfoUseProductView: FC<AvatarInfoUseProductViewProps> = props
     const processAction = (name: string) =>
     {
         if(!name) return;
-        
+
         switch(name)
         {
             case 'use_product':
@@ -46,7 +46,7 @@ export const AvatarInfoUseProductView: FC<AvatarInfoUseProductViewProps> = props
                 updateConfirmingProduct(item);
                 break;
         }
-    }
+    };
 
     useEffect(() =>
     {
@@ -85,7 +85,7 @@ export const AvatarInfoUseProductView: FC<AvatarInfoUseProductViewProps> = props
 
         setMode(mode);
     }, [ roomSession, item ]);
-    
+
     return (
         <ContextMenuView objectId={ item.id } category={ RoomObjectCategory.UNIT } userType={ RoomObjectType.PET } onClose={ onClose } collapsable={ true }>
             <ContextMenuHeaderView>
@@ -132,4 +132,4 @@ export const AvatarInfoUseProductView: FC<AvatarInfoUseProductViewProps> = props
                 </ContextMenuListItemView> }
         </ContextMenuView>
     );
-}
+};

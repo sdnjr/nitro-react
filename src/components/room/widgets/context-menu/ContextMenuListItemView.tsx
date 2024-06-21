@@ -15,7 +15,7 @@ export const ContextMenuListItemView: FC<ContextMenuListItemViewProps> = props =
         if(disabled) return;
 
         if(onClick) onClick(event);
-    }
+    };
 
     const getClassNames = useMemo(() =>
     {
@@ -29,4 +29,4 @@ export const ContextMenuListItemView: FC<ContextMenuListItemViewProps> = props =
     }, [ disabled, classNames ]);
 
     return <Flex fullWidth={ fullWidth } justifyContent={ justifyContent } alignItems={ alignItems } classNames={ getClassNames } onClick={ handleClick } { ...rest } />;
-}
+};

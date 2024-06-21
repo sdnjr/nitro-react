@@ -30,7 +30,7 @@ export const AvatarInfoPetTrainingPanelView: FC<{}> = props =>
         if (!petName || !commandName) return;
 
         roomSession?.sendChatMessage(`${ petName } ${ commandName }`, chatStyleId);
-    }
+    };
 
     if(!petData || !petTrainInformation) return null;
 

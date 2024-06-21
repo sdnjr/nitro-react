@@ -15,7 +15,7 @@ export const WiredConditionFurniHasFurniOnView: FC<{}> = props =>
     {
         setRequireAll((trigger.intData.length > 0) ? trigger.intData[0] : 0);
     }, [ trigger ]);
-    
+
     return (
         <WiredConditionBaseView requiresFurni={ WiredFurniType.STUFF_SELECTION_OPTION_BY_ID } hasSpecialInput={ true } save={ save }>
             <Column gap={ 1 }>
@@ -27,9 +27,9 @@ export const WiredConditionFurniHasFurniOnView: FC<{}> = props =>
                             <input className="form-check-input" type="radio" name="requireAll" id={ `requireAll${ value }` } checked={ (requireAll === value) } onChange={ event => setRequireAll(value) } />
                             <Text>{ LocalizeText('wiredfurni.params.requireall.' + value) }</Text>
                         </Flex>
-                    )
+                    );
                 }) }
             </Column>
         </WiredConditionBaseView>
     );
-}
+};

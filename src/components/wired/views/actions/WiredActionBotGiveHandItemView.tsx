@@ -16,7 +16,7 @@ export const WiredActionBotGiveHandItemView: FC<{}> = props =>
     {
         setStringParam(botName);
         setIntParams([ handItemId ]);
-    }
+    };
 
     useEffect(() =>
     {
@@ -39,4 +39,4 @@ export const WiredActionBotGiveHandItemView: FC<{}> = props =>
             </Column>
         </WiredActionBaseView>
     );
-}
+};

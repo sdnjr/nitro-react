@@ -28,7 +28,7 @@ export const NitroCardHeaderView: FC<NitroCardHeaderViewProps> = props =>
     {
         event.stopPropagation();
         event.nativeEvent.stopImmediatePropagation();
-    }
+    };
 
     return (
         <Column center position="relative" classNames={ getClassNames } { ...rest }>
@@ -45,4 +45,4 @@ export const NitroCardHeaderView: FC<NitroCardHeaderViewProps> = props =>
             </Flex>
         </Column>
     );
-}
+};

@@ -30,7 +30,7 @@ export const InventoryView: FC<{}> = props =>
         if(isTrading) stopTrading();
 
         setIsVisible(false);
-    }
+    };
 
     useNitroEvent<RoomEngineObjectPlacedEvent>(RoomEngineObjectEvent.PLACED, event =>
     {
@@ -73,7 +73,7 @@ export const InventoryView: FC<{}> = props =>
                 const parts = url.split('/');
 
                 if(parts.length < 2) return;
-        
+
                 switch(parts[1])
                 {
                     case 'show':
@@ -107,7 +107,7 @@ export const InventoryView: FC<{}> = props =>
 
                 return null;
             });
-        }
+        };
     }, []);
 
     useEffect(() =>
@@ -137,9 +137,9 @@ export const InventoryView: FC<{}> = props =>
                             <InventoryFurnitureView roomSession={ roomSession } roomPreviewer={ roomPreviewer } /> }
                         { (currentTab === TAB_BOTS ) &&
                             <InventoryBotView roomSession={ roomSession } roomPreviewer={ roomPreviewer } /> }
-                        { (currentTab === TAB_PETS ) && 
+                        { (currentTab === TAB_PETS ) &&
                             <InventoryPetView roomSession={ roomSession } roomPreviewer={ roomPreviewer } /> }
-                        { (currentTab === TAB_BADGES ) && 
+                        { (currentTab === TAB_BADGES ) &&
                             <InventoryBadgeView /> }
                     </NitroCardContentView>
                 </> }
@@ -149,4 +149,4 @@ export const InventoryView: FC<{}> = props =>
                 </NitroCardContentView> }
         </NitroCardView>
     );
-}
+};

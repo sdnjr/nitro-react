@@ -6,7 +6,7 @@ import { useInventoryFurni } from '../../../inventory';
 import { useNotification } from './../../../notification';
 
 const useFurnitureCraftingWidgetState = () =>
-{    
+{
     const [ objectId, setObjectId ] = useState(-1);
     const [ recipes, setRecipes ] = useState<ICraftingRecipe[]>([]);
     const [ selectedRecipe, setSelectedRecipe ] = useState<ICraftingRecipe>(null);
@@ -43,13 +43,13 @@ const useFurnitureCraftingWidgetState = () =>
     const selectRecipe = (recipe: ICraftingRecipe) =>
     {
         setSelectedRecipe(recipe);
- 
+
         const cache = cachedIngredients.get(recipe.name);
 
         if(!cache) SendMessageComposer(new GetCraftingRecipeComposer(recipe.name));
-    }
+    };
 
-    useNitroEvent<RoomEngineTriggerWidgetEvent>(RoomEngineTriggerWidgetEvent.OPEN_WIDGET, event => 
+    useNitroEvent<RoomEngineTriggerWidgetEvent>(RoomEngineTriggerWidgetEvent.OPEN_WIDGET, event =>
     {
         if (event.widget !== RoomWidgetEnum.CRAFTING) return;
 
@@ -62,7 +62,7 @@ const useFurnitureCraftingWidgetState = () =>
     {
         const parser = event.getParser();
 
-        if (!parser.isActive()) 
+        if (!parser.isActive())
         {
             setObjectId(-1);
 
@@ -161,6 +161,6 @@ const useFurnitureCraftingWidgetState = () =>
     }, [ objectId, activate, deactivate ]);
 
     return { objectId, recipes, ingredients, selectedRecipe, requiredIngredients, isCrafting, selectRecipe, craft, onClose };
-}
+};
 
 export const useFurnitureCraftingWidget = useFurnitureCraftingWidgetState;

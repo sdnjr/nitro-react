@@ -73,4 +73,4 @@ export const NavigatorRoomSettingsVipChatTabView: FC<NavigatorRoomSettingsTabVie
             </Grid>
         </>
     );
-}
+};

@@ -30,7 +30,7 @@ export const NameChangeInputView:FC<NameChangeLayoutViewProps> = props =>
         setIsChecking(true);
 
         SendMessageComposer(new CheckUserNameMessageComposer(newUsername));
-    }
+    };
 
     const handleUsernameChange = (username: string) =>
     {
@@ -38,8 +38,8 @@ export const NameChangeInputView:FC<NameChangeLayoutViewProps> = props =>
         setSuggestions([]);
         setErrorCode(null);
         setNewUsername(username);
-    }
-    
+    };
+
     useMessageEvent<CheckUserNameResultMessageEvent>(CheckUserNameResultMessageEvent, event =>
     {
         setIsChecking(false);
@@ -94,4 +94,4 @@ export const NameChangeInputView:FC<NameChangeLayoutViewProps> = props =>
             </div>
         </div>
     );
-}
+};

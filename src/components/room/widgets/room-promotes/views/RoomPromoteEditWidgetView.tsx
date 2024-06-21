@@ -21,7 +21,7 @@ export const RoomPromoteEditWidgetView: FC<RoomPromoteEditWidgetViewProps> = pro
     {
         SendMessageComposer(new EditEventMessageComposer(eventId, newEventName, newEventDescription));
         setIsEditingPromote(false);
-    }
+    };
 
     return (
         <NitroCardView className="nitro-guide-tool" theme="primary-slim">

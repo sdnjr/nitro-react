@@ -20,7 +20,7 @@ export const GuideToolUserCreateRequestView: FC<GuideToolUserCreateRequestViewPr
     {
         setIsPending(true);
         SendMessageComposer(new GuideSessionCreateMessageComposer(1, userRequest));
-    }
+    };
 
     return (
         <Column>

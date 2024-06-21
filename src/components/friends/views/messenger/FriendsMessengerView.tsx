@@ -25,14 +25,14 @@ export const FriendsMessengerView: FC<{}> = props =>
         sendMessage(activeThread, GetSessionDataManager().userId, messageText);
 
         setMessageText('');
-    }
+    };
 
     const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) =>
     {
         if(event.key !== 'Enter') return;
 
         send();
-    }
+    };
 
     useEffect(() =>
     {
@@ -174,4 +174,4 @@ export const FriendsMessengerView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

@@ -63,4 +63,4 @@ export const FurnitureFriendFurniView: FC<{}> = props =>
             </DraggableWindow>
         );
     }
-}
+};

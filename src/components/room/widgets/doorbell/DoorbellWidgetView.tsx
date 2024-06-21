@@ -48,4 +48,4 @@ export const DoorbellWidgetView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

@@ -11,7 +11,7 @@ export const ChatHistoryView: FC<{}> = props =>
     const { chatHistory = [] } = useChatHistory();
     const elementRef = useRef<HTMLDivElement>(null);
 
-    const filteredChatHistory = useMemo(() => 
+    const filteredChatHistory = useMemo(() =>
     {
         if (searchText.length === 0) return chatHistory;
 
@@ -31,9 +31,9 @@ export const ChatHistoryView: FC<{}> = props =>
             linkReceived: (url: string) =>
             {
                 const parts = url.split('/');
-        
+
                 if(parts.length < 2) return;
-        
+
                 switch(parts[1])
                 {
                     case 'show':
@@ -88,9 +88,9 @@ export const ChatHistoryView: FC<{}> = props =>
                                     <Text textBreak wrap grow>{ row.name }</Text>
                                 </> }
                         </Flex>
-                    )
+                    );
                 } } />
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

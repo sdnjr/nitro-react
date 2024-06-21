@@ -16,7 +16,7 @@ export const SearchFormView: FC<SearchFormViewProps> = props =>
     const [ searchQuery, setSearchQuery ] = useState('');
     const [ min, setMin ] = useState(0);
     const [ max, setMax ] = useState(0);
-    
+
     const onSortTypeChange = useCallback((sortType: number) =>
     {
         setSortType(sortType);
@@ -29,13 +29,13 @@ export const SearchFormView: FC<SearchFormViewProps> = props =>
         const minPrice = ((min > 0) ? min : -1);
         const maxPrice = ((max > 0) ? max : -1);
 
-        onSearch({ minPrice: minPrice, maxPrice: maxPrice, type: sortType, query: searchQuery })
+        onSearch({ minPrice: minPrice, maxPrice: maxPrice, type: sortType, query: searchQuery });
     }, [ max, min, onSearch, searchQuery, sortType ]);
 
-    useEffect( () => 
+    useEffect( () =>
     {
         if(!sortTypes || !sortTypes.length) return;
-        
+
         const sortType = sortTypes[0];
 
         setSortType(sortType);
@@ -68,4 +68,4 @@ export const SearchFormView: FC<SearchFormViewProps> = props =>
                 </> }
         </Column>
     );
-}
+};

@@ -43,4 +43,4 @@ export const Column: FC<ColumnProps> = props =>
     }, [ size, offset, isCssGrid, classNames ]);
 
     return <Flex classNames={ getClassNames } column={ column } gap={ gap } { ...rest } />;
-}
+};

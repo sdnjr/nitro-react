@@ -60,4 +60,4 @@ export const Text: FC<TextProps> = props =>
     }, [ variant, fontWeight, fontSize, align, bold, underline, italics, truncate, center, textEnd, small, wrap, noWrap, textBreak ]);
 
     return <Base classNames={ getClassNames } { ...rest } />;
-}
+};

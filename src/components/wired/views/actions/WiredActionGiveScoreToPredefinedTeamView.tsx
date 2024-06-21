@@ -64,4 +64,4 @@ export const WiredActionGiveScoreToPredefinedTeamView: FC<{}> = props =>
             </Column>
         </WiredActionBaseView>
     );
-}
+};

@@ -52,4 +52,4 @@ export const InfoStandWidgetBotView: FC<InfoStandWidgetBotViewProps> = props =>
             </Column>
         </Column>
     );
-}
+};

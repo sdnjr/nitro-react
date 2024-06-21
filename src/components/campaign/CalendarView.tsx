@@ -33,7 +33,7 @@ export const CalendarView: FC<CalendarViewProps> = props =>
         if(missedDays.includes(day)) return CalendarItemState.STATE_LOCKED_EXPIRED;
 
         return CalendarItemState.STATE_LOCKED_AVAILABLE;
-    }
+    };
 
     const dayMessage = (day: number) =>
     {
@@ -50,7 +50,7 @@ export const CalendarView: FC<CalendarViewProps> = props =>
             default:
                 return LocalizeText('campaign.calendar.info.available.desktop');
         }
-    }
+    };
 
     const onClickNext = () =>
     {
@@ -61,7 +61,7 @@ export const CalendarView: FC<CalendarViewProps> = props =>
         setSelectedDay(nextDay);
 
         if((index + TOTAL_SHOWN_ITEMS) < (nextDay + 1)) setIndex(index + 1);
-    }
+    };
 
     const onClickPrev = () =>
     {
@@ -72,7 +72,7 @@ export const CalendarView: FC<CalendarViewProps> = props =>
         setSelectedDay(prevDay);
 
         if(index > prevDay) setIndex(index - 1);
-    }
+    };
 
     const onClickItem = (item: number) =>
     {
@@ -84,9 +84,9 @@ export const CalendarView: FC<CalendarViewProps> = props =>
 
             return;
         }
-        
+
         setSelectedDay(item);
-    }
+    };
 
     const forceOpen = () =>
     {
@@ -94,7 +94,7 @@ export const CalendarView: FC<CalendarViewProps> = props =>
         const state = getDayState(id);
 
         if(state !== CalendarItemState.STATE_UNLOCKED) openPackage(id, true);
-    }
+    };
 
     return (
         <NitroCardView className="nitro-campaign-calendar" theme="primary-slim">
@@ -125,7 +125,7 @@ export const CalendarView: FC<CalendarViewProps> = props =>
                             { [ ...Array(TOTAL_SHOWN_ITEMS) ].map((e, i) =>
                             {
                                 const day = (index + i);
-                                    
+
                                 return (
                                     <Column key={ i } overflow="hidden">
                                         <CalendarItemView itemId={ day } state={ getDayState(day) } active={ (selectedDay === day) } product={ receivedProducts.has(day) ? receivedProducts.get(day) : null } onClick={ onClickItem } />
@@ -140,5 +140,5 @@ export const CalendarView: FC<CalendarViewProps> = props =>
                 </Flex>
             </NitroCardContentView>
         </NitroCardView>
-    )
-}
+    );
+};

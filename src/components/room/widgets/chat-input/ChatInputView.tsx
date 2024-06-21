@@ -221,7 +221,7 @@ export const ChatInputView: FC<{}> = props =>
         return () =>
         {
             document.body.removeEventListener('keydown', onKeyDownEvent);
-        }
+        };
     }, [ onKeyDownEvent ]);
 
     useEffect(() =>
@@ -245,4 +245,4 @@ export const ChatInputView: FC<{}> = props =>
                 <ChatInputStyleSelectorView chatStyleId={ chatStyleId } chatStyleIds={ chatStyleIds } selectChatStyleId={ updateChatStyleId } />
             </div>, document.getElementById('toolbar-chat-input-container'))
     );
-}
+};

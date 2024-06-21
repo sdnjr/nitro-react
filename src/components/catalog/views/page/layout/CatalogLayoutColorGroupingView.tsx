@@ -40,7 +40,7 @@ export const CatalogLayoutColorGroupingView : FC<CatalogLayoutColorGroupViewProp
             return 0;
         }
         return -1;
-    }
+    };
 
     const sortyByFurnitureClassName = (a: IPurchasableOffer, b: IPurchasableOffer) =>
     {
@@ -53,13 +53,13 @@ export const CatalogLayoutColorGroupingView : FC<CatalogLayoutColorGroupViewProp
             return 0;
         }
         return -1;
-    }
+    };
 
     const selectOffer = (offer: IPurchasableOffer) =>
     {
         offer.activate();
         setCurrentOffer(offer);
-    }
+    };
 
     const selectColor = (colorIndex: number, productName: string) =>
     {
@@ -69,7 +69,7 @@ export const CatalogLayoutColorGroupingView : FC<CatalogLayoutColorGroupViewProp
         {
             selectOffer(page.offers[index]);
         }
-    }
+    };
 
     const offers = useMemo(() =>
     {
@@ -100,7 +100,7 @@ export const CatalogLayoutColorGroupingView : FC<CatalogLayoutColorGroupViewProp
                 }
 
                 let selectedColor = 0xFFFFFF;
-                
+
                 if(furniData.colors)
                 {
                     for(let color of furniData.colors)
@@ -173,4 +173,4 @@ export const CatalogLayoutColorGroupingView : FC<CatalogLayoutColorGroupViewProp
             </Column>
         </Grid>
     );
-}
+};

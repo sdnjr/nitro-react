@@ -32,4 +32,4 @@ export const NitroCardTabsItemView: FC<NitroCardTabsItemViewProps> = props =>
                 <LayoutItemCountView count={ count } /> }
         </Flex>
     );
-}
+};

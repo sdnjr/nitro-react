@@ -30,4 +30,4 @@ export const FurnitureExchangeCreditView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

@@ -32,14 +32,14 @@ export const CatalogSpacesWidgetView: FC<CatalogSpacesWidgetViewProps> = props =
 
             return newValue;
         });
-    }
+    };
 
     useEffect(() =>
     {
         if(!currentPage) return;
-        
+
         const groupedOffers: IPurchasableOffer[][] = [ [], [], [] ];
-        
+
         for(const offer of currentPage.offers)
         {
             if((offer.pricingModel !== Offer.PRICING_MODEL_SINGLE) && (offer.pricingModel !== Offer.PRICING_MODEL_MULTI)) continue;
@@ -84,7 +84,7 @@ export const CatalogSpacesWidgetView: FC<CatalogSpacesWidgetViewProps> = props =
         setPurchaseOptions(prevValue =>
         {
             const newValue = { ...prevValue };
-                
+
             newValue.extraData = selectedOfferForGroup[selectedGroupIndex].product.extraParam;
             newValue.extraParamRequired = true;
 
@@ -112,4 +112,4 @@ export const CatalogSpacesWidgetView: FC<CatalogSpacesWidgetViewProps> = props =
             </AutoGrid>
         </>
     );
-}
+};

@@ -27,7 +27,7 @@ export const PurchasableClothingConfirmView: FC<PurchasableClothingConfirmViewPr
         SendMessageComposer(new UserFigureComposer(gender, newFigure));
 
         onClose();
-    }
+    };
 
     useEffect(() =>
     {
@@ -66,7 +66,7 @@ export const PurchasableClothingConfirmView: FC<PurchasableClothingConfirmViewPr
 
             return;
         }
-        
+
         setGender(gender);
         setNewFigure(GetAvatarRenderManager().getFigureStringWithFigureIds(figure, gender, validSets));
 
@@ -76,7 +76,7 @@ export const PurchasableClothingConfirmView: FC<PurchasableClothingConfirmViewPr
     }, [ roomSession, objectId, onClose ]);
 
     if(mode === MODE_DEFAULT) return null;
-    
+
     return (
         <NitroCardView className="nitro-use-product-confirmation">
             <NitroCardHeaderView headerText={ LocalizeText('useproduct.widget.title.bind_clothing') } onCloseClick={ onClose } />
@@ -101,4 +101,4 @@ export const PurchasableClothingConfirmView: FC<PurchasableClothingConfirmViewPr
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

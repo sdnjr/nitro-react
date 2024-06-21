@@ -15,7 +15,7 @@ export const FurnitureDimmerView: FC<{}> = props =>
         FurnitureDimmerUtilities.previewDimmer(color, brightness, (effectId === 2));
 
         setIsVisible(false);
-    }
+    };
 
     useNitroEvent<RoomEngineTriggerWidgetEvent>(RoomEngineTriggerWidgetEvent.REMOVE_DIMMER, event => setIsVisible(false));
 
@@ -83,4 +83,4 @@ export const FurnitureDimmerView: FC<{}> = props =>
             </NitroCardContentView>
         </NitroCardView>
     );
-}
+};

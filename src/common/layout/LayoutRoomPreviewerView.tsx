@@ -32,24 +32,24 @@ export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =
         {
             if(!roomPreviewer || !elementRef.current) return;
 
-            roomPreviewer.updatePreviewRoomView();
-
+            const canvas = roomPreviewer.getRoomCanvas(width, height);
             const renderingCanvas = roomPreviewer.getRenderingCanvas();
 
             if(!renderingCanvas.canvasUpdated) return;
 
+            roomPreviewer.updatePreviewRoomView();
+
             GetRenderer().render({
                 target: texture,
-                container: renderingCanvas.master,
+                container: canvas,
                 clear: true
             });
 
-            let canvas = GetRenderer().texture.generateCanvas(texture);
-            const base64 = canvas.toDataURL('image/png');
+            const url = await TextureUtils.generateImageUrl(texture);
 
-            canvas = null;
+            if(!elementRef || !elementRef.current) return;
 
-            elementRef.current.style.backgroundImage = `url(${ base64 })`;
+            elementRef.current.style.backgroundImage = `url(${ url })`;
         };
 
         GetTicker().add(update);
@@ -64,8 +64,6 @@ export const LayoutRoomPreviewerView: FC<LayoutRoomPreviewerViewProps> = props =
 
             update(GetTicker());
         });
-
-        roomPreviewer.getRoomCanvas(width, height);
 
         resizeObserver.observe(elementRef.current);
 

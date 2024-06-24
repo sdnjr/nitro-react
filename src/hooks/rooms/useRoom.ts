@@ -204,7 +204,7 @@ const useRoomState = () =>
         const height = Math.floor(window.innerHeight);
         const renderer = GetRenderer();
 
-        if(renderer) renderer.resize(width, height);
+        if(renderer) renderer.resize(width, height, window.devicePixelRatio);
 
         const displayObject = roomEngine.getRoomInstanceDisplay(roomId, canvasId, width, height, RoomGeometry.SCALE_ZOOMED_IN);
         const canvas = GetRoomEngine().getRoomInstanceRenderingCanvas(roomId, canvasId);
@@ -256,13 +256,13 @@ const useRoomState = () =>
             const width = Math.floor(window.innerWidth);
             const height = Math.floor(window.innerHeight);
 
-            renderer.resolution = window.devicePixelRatio;
-            renderer.resize(width, height);
-
             background.width = width;
             background.height = height;
 
+            renderer.resize(width, height, window.devicePixelRatio);
+
             InitializeRoomInstanceRenderingCanvas(width, height, 1);
+            GetRenderer().render(GetStage());
         };
 
         window.addEventListener('resize', resize);

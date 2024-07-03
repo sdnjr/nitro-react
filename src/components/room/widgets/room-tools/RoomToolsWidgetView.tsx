@@ -1,7 +1,8 @@
 import { CreateLinkEvent, GetGuestRoomResultEvent, GetRoomEngine, NavigatorSearchComposer, RateFlatMessageComposer } from '@nitrots/nitro-renderer';
+import { AnimatePresence, motion } from 'framer-motion';
 import { FC, useEffect, useState } from 'react';
 import { LocalizeText, SendMessageComposer } from '../../../../api';
-import { Base, Column, Flex, Text, TransitionAnimation, TransitionAnimationTypes, classNames } from '../../../../common';
+import { Base, Column, Flex, Text, classNames } from '../../../../common';
 import { useMessageEvent, useNavigator, useRoom } from '../../../../hooks';
 
 export const RoomToolsWidgetView: FC<{}> = props =>
@@ -80,20 +81,26 @@ export const RoomToolsWidgetView: FC<{}> = props =>
                     <Base pointer title={ LocalizeText('room.like.button.text') } onClick={ () => handleToolClick('like_room') } className="icon icon-like-room" /> }
             </Column>
             <Column justifyContent="center">
-                <TransitionAnimation type={ TransitionAnimationTypes.SLIDE_LEFT } inProp={ isOpen } timeout={ 300 }>
-                    <Column center>
-                        <Column className="nitro-room-tools-info rounded py-2 px-3">
-                            <Column gap={ 1 }>
-                                <Text wrap variant="white" fontSize={ 4 }>{ roomName }</Text>
-                                <Text variant="muted" fontSize={ 5 }>{ roomOwner }</Text>
-                            </Column>
-                            { roomTags && roomTags.length > 0 &&
+                <AnimatePresence>
+                    { isOpen &&
+                        <motion.div
+                            initial={ { x: -400 }}
+                            animate={ { x: 0 }}
+                            exit={ { x: -400 }}>
+                            <Column center>
+                                <Column className="nitro-room-tools-info rounded py-2 px-3">
+                                    <Column gap={ 1 }>
+                                        <Text wrap variant="white" fontSize={ 4 }>{ roomName }</Text>
+                                        <Text variant="muted" fontSize={ 5 }>{ roomOwner }</Text>
+                                    </Column>
+                                    { roomTags && roomTags.length > 0 &&
                                 <Flex gap={ 2 }>
                                     { roomTags.map((tag, index) => <Text key={ index } small pointer variant="white" className="rounded bg-primary p-1" onClick={ () => handleToolClick('navigator_search_tag', tag) }>#{ tag }</Text>) }
                                 </Flex> }
-                        </Column>
-                    </Column>
-                </TransitionAnimation>
+                                </Column>
+                            </Column>
+                        </motion.div> }
+                </AnimatePresence>
             </Column>
         </Flex>
     );

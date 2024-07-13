@@ -1,5 +1,5 @@
-import { GetRoomCameraWidgetManager, IRoomCameraWidgetEffect, IRoomCameraWidgetSelectedEffect, RoomCameraWidgetSelectedEffect } from '@nitrots/nitro-renderer';
-import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { GetRoomCameraWidgetManager, IRoomCameraWidgetEffect, IRoomCameraWidgetSelectedEffect, NitroLogger, RoomCameraWidgetSelectedEffect } from '@nitrots/nitro-renderer';
+import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { FaSave, FaSearchMinus, FaSearchPlus, FaTrash } from 'react-icons/fa';
 import ReactSlider from 'react-slider';
 import { CameraEditorTabs, CameraPicture, CameraPictureThumbnail, LocalizeText } from '../../../../api';
@@ -27,6 +27,7 @@ export const CameraWidgetEditorView: FC<CameraWidgetEditorViewProps> = props =>
     const [ effectsThumbnails, setEffectsThumbnails ] = useState<CameraPictureThumbnail[]>([]);
     const [ isZoomed, setIsZoomed ] = useState(false);
     const [ currentPictureUrl, setCurrentPictureUrl ] = useState<string>('');
+    const isBusy = useRef<boolean>(false);
 
     const getColorMatrixEffects = useMemo(() =>
     {
@@ -158,29 +159,28 @@ export const CameraWidgetEditorView: FC<CameraWidgetEditorViewProps> = props =>
 
     useEffect(() =>
     {
-        (async () =>
+        const processThumbnails = async () =>
         {
-            const thumbnails: CameraPictureThumbnail[] = [];
+            const renderedEffects = await Promise.all(availableEffects.map(effect => GetRoomCameraWidgetManager().applyEffects(picture.texture, [ new RoomCameraWidgetSelectedEffect(effect, 1) ], false)));
 
-            for await (const effect of availableEffects)
-            {
-                const image = await GetRoomCameraWidgetManager().applyEffects(picture.texture, [ new RoomCameraWidgetSelectedEffect(effect, 1) ], false);
+            setEffectsThumbnails(renderedEffects.map((image, index) => new CameraPictureThumbnail(availableEffects[index].name, image.src)));
+        };
 
-                thumbnails.push(new CameraPictureThumbnail(effect.name, image.src));
-            }
-
-            setEffectsThumbnails(thumbnails);
-        })();
+        processThumbnails();
     }, [ picture, availableEffects ]);
 
     useEffect(() =>
     {
-        (async () =>
-        {
-            const imageUrl = await GetRoomCameraWidgetManager().applyEffects(picture.texture, selectedEffects, isZoomed);
-
-            setCurrentPictureUrl(imageUrl.src);
-        })();
+        GetRoomCameraWidgetManager()
+            .applyEffects(picture.texture, selectedEffects, isZoomed)
+            .then(imageElement =>
+            {
+                setCurrentPictureUrl(imageElement.src);
+            })
+            .catch(error =>
+            {
+                NitroLogger.error('Failed to apply effects to picture', error);
+            });
     }, [ picture, selectedEffects, isZoomed ]);
 
     return (
@@ -208,9 +208,9 @@ export const CameraWidgetEditorView: FC<CameraWidgetEditorViewProps> = props =>
                                         min={ 0 }
                                         max={ 1 }
                                         step={ 0.01 }
-                                        value={ getCurrentEffect.alpha }
+                                        value={ getCurrentEffect.strength }
                                         onChange={ event => setSelectedEffectAlpha(event) }
-                                        renderThumb={ (props, state) => <div { ...props }>{ state.valueNow }</div> } />
+                                        renderThumb={ ({ key, ...props }, state) => <div key={ key } { ...props }>{ state.valueNow }</div> } />
                                 </Column> }
                         </Column>
                         <Flex justifyContent="between">

@@ -35,6 +35,7 @@
     "system.pong.interval.ms": 20000,
     "room.color.skip.transition": true,
     "room.landscapes.enabled": true,
+    "room.zoom.enabled": true,
     "avatar.mandatory.libraries": [
         "bd:1",
         "li:0"
